@@ -1,65 +1,161 @@
-"""Document-like images: data tables and shop receipts."""
+"""Document-like images: printed data tables and thermal shop receipts.
+
+Both are laid out flat, printed as an ink mask onto seeded paper texture, then placed on a
+desk surface with a small rotation and perspective, uneven light and sensor noise. The
+render returns the homography from sheet to photo and the sheet box of every answer-bearing
+token, so probes can check legibility in the final photo, not in the clean layout.
+"""
 
 from __future__ import annotations
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw
 
+from .. import realism as R
 from ..core import FRUITS, WORDS, Family, Question, Reject, pick, register
 from .text import font
 
+
+def _photo_knobs(rng, diff, rot):
+    """Seeded camera and lighting knobs shared by tables and receipts."""
+    lvl = {"easy": 0, "medium": 1, "hard": 2}[diff]
+    ang = float(rng.uniform(0, 2 * np.pi))
+    return {
+        "noise_seed": int(rng.integers(0, 2 ** 31)),
+        "skew_deg": round(float(rng.uniform(-rot[lvl], rot[lvl])), 2),
+        "perspective": [0.0, 0.012, 0.028][lvl],
+        "light": [0.10, 0.20, 0.32][lvl],
+        "light_dir": [round(float(np.cos(ang)), 3), round(float(np.sin(ang)), 3)],
+        "vignette": [0.10, 0.20, 0.30][lvl],
+        "sensor": [1.5, 2.5, 3.5][lvl],
+        "surface": pick(rng, ["wood", "desk", "linen", "slate"]),
+    }
+
+
+def _photograph(sheet_rgb, sheet_alpha, knobs, rng):
+    """Put a flat sheet on a surface and photograph it. Returns (photo, homography)."""
+    h, w = sheet_rgb.shape[:2]
+    m = int(0.10 * max(w, h)) + 50
+    W, H = w + 2 * m, h + 2 * m
+    bg = R.surface(rng, W, H, knobs["surface"])
+    src = [(0, 0), (w, 0), (w, h), (0, h)]
+    dst = R.quad(w, h, W / 2, H / 2, knobs["skew_deg"], knobs["perspective"], rng)
+    Hm = R.homography(src, dst)
+    out = R.place(sheet_rgb, sheet_alpha, bg, Hm)
+    gx, gy = knobs["light_dir"]
+    out = R.lighting(out, gx, gy, knobs["light"], knobs["vignette"], warm=0.02)
+    out = R.blur(out, knobs.get("blur", 0.0))
+    out = R.sensor(out, rng, knobs["sensor"])
+    return out, Hm
+
+
+def _token_boxes(text, x0, y0, y1, cw):
+    """Sheet boxes of each run of non-space characters in a monospaced line."""
+    out, i = [], 0
+    while i < len(text):
+        if text[i] == " ":
+            i += 1
+            continue
+        j = i
+        while j < len(text) and text[j] != " ":
+            j += 1
+        out.append([x0 + i * cw, y0, x0 + j * cw, y1])
+        i = j
+    return out
+
+
 # ---------------------------------------------------------------- table
+
+THEMES = {
+    "sports": {"label": "Team", "noun": "team", "plural": "teams",
+               "cols": ["Q1", "Q2", "Q3", "Q4", "Wins", "Goals", "Points", "Games"],
+               "titles": ["Season standings", "League table", "Club results"]},
+    "sales": {"label": "Branch", "noun": "branch", "plural": "branches",
+              "cols": ["Q1", "Q2", "Q3", "Q4", "Orders", "Units", "Returns", "Visits"],
+              "titles": ["Branch sales by quarter", "Regional sales summary", "Store performance"]},
+}
 
 
 def table_build(rng, diff):
     nrows = {"easy": 4, "medium": int(rng.integers(6, 9)), "hard": int(rng.integers(10, 15))}[diff]
     ncols = {"easy": 3, "medium": 4, "hard": 5}[diff]
-    cols = ["Team"] + pick(rng, ["Q1", "Q2", "Q3", "Q4", "Wins", "Goals", "Points", "Games"], ncols)
+    theme = pick(rng, sorted(THEMES))
+    th = THEMES[theme]
+    cols = [th["label"]] + pick(rng, th["cols"], ncols)
     names = pick(rng, WORDS, nrows)
-    hi = 100 if diff == "easy" else 1000
+    hi = {"easy": 100, "medium": 1000, "hard": 1000 if theme == "sports" else 20000}[diff]
     rows = [[nm] + [int(v) for v in rng.integers(1, hi, size=ncols)] for nm in names]
     knobs = {"rows": nrows, "cols": ncols + 1, "font_px": {"easy": 20, "medium": 15, "hard": 12}[diff],
-             "zebra": diff == "medium", "rules": diff != "hard", "dense": diff == "hard"}
-    return {"columns": cols, "rows": rows}, knobs
+             "zebra": diff == "medium", "rules": diff != "hard", "dense": diff == "hard",
+             "face": pick(rng, ["sans", "serif", "narrow", "dejavu"]), "thousands": diff == "hard"}
+    knobs.update(_photo_knobs(rng, diff, (0.8, 1.8, 3.0)))
+    if diff == "hard":
+        knobs["blur"] = 0.5
+    spec = {"columns": cols, "rows": rows, "theme": theme, "noun": th["noun"], "plural": th["plural"],
+            "title": pick(rng, th["titles"]), "note": pick(rng, ["Figures are provisional.", "Final figures.",
+                                                                   "Compiled at period end."])}
+    return spec, knobs
+
+
+def _num(v, thousands):
+    return f"{v:,}" if thousands else str(v)
 
 
 def table_render(spec, knobs, path):
-    f, fb = font(knobs["font_px"]), font(knobs["font_px"], bold=True)
+    rng = np.random.default_rng(knobs["noise_seed"])
+    face = knobs.get("face", "dejavu")
+    fs = knobs["font_px"]
+    f, fb = font(fs, face=face), font(fs, bold=True, face=face)
+    ft, fn = font(fs + 8, bold=True, face="serif"), font(max(10, fs - 3), face=face)
     pad = 6 if knobs["dense"] else 10
     cols, rows = spec["columns"], spec["rows"]
-    cells = [cols] + [[str(v) for v in r] for r in rows]
-    widths = [max(f.getbbox(str(c[j]))[2] if i else fb.getbbox(str(c[j]))[2] for i, c in enumerate(cells)) + 2 * pad
+    th = knobs.get("thousands", False)
+    cells = [cols] + [[r[0]] + [_num(v, th) for v in r[1:]] for r in rows]
+    widths = [int(max((fb if i == 0 else f).getbbox(str(c[j]))[2] for i, c in enumerate(cells))) + 2 * pad
               for j in range(len(cols))]
-    rh = int(knobs["font_px"] * 1.5) + pad
-    W, H = sum(widths) + 40, rh * len(cells) + 40
-    img = Image.new("RGB", (W, H), (255, 255, 255))
-    d = ImageDraw.Draw(img)
-    boxes = []
-    y = 20
+    rh = int(fs * 1.5) + pad
+    mx, top = 36, 36 + int(fs * 2.6)
+    W = max(sum(widths) + 2 * mx, int(ft.getlength(spec.get("title", ""))) + 2 * mx)
+    H = top + rh * len(cells) + int(fs * 2.4) + 30
+    sheet = Image.fromarray(R.paper(rng, W, H, base=(247, 246, 241), blotch=5, grain=3, fibers=12))
+    shade = ImageDraw.Draw(sheet, "RGBA")
+    ink = Image.new("L", (W, H), 0)
+    d = ImageDraw.Draw(ink)
+    if spec.get("title"):
+        d.text((mx, 30), spec["title"], font=ft, fill=255, anchor="lt")
+    boxes, y = [], top
+    x_end = mx + sum(widths)
     for i, row in enumerate(cells):
-        x = 20
-        if knobs["zebra"] and i % 2 == 0 and i:
-            d.rectangle([20, y, W - 20, y + rh], fill=(235, 240, 248))
         if i == 0:
-            d.rectangle([20, y, W - 20, y + rh], fill=(220, 225, 235))
-        rb = []
+            shade.rectangle([mx, y, x_end, y + rh], fill=(40, 60, 90, 38))
+        elif knobs["zebra"] and i % 2 == 0:
+            shade.rectangle([mx, y, x_end, y + rh], fill=(40, 70, 120, 18))
+        x, rb = mx, []
         for j, txt in enumerate(row):
-            ft = fb if i == 0 else f
+            ftx = fb if i == 0 else f
             if j == 0:
-                d.text((x + pad, y + rh / 2), txt, font=ft, fill=(0, 0, 0), anchor="lm")
+                d.text((x + pad, y + rh / 2), txt, font=ftx, fill=255, anchor="lm")
             else:
-                d.text((x + widths[j] - pad, y + rh / 2), txt, font=ft, fill=(0, 0, 0), anchor="rm")
+                d.text((x + widths[j] - pad, y + rh / 2), txt, font=ftx, fill=255, anchor="rm")
             rb.append([x, y, x + widths[j], y + rh])
             x += widths[j]
         boxes.append(rb)
-        if knobs["rules"]:
-            d.line([20, y + rh, W - 20, y + rh], fill=(150, 150, 150))
+        if knobs["rules"] or i == 0:
+            d.line([mx, y + rh, x_end, y + rh], fill=110 if i else 230, width=1 if i else 2)
         y += rh
     if knobs["rules"]:
-        d.rectangle([20, 20, W - 20, y], outline=(80, 80, 80))
-    img.save(path)
-    text_w = [[(fb if i == 0 else f).getbbox(t)[2] for t in row] for i, row in enumerate(cells)]
-    return {"w": W, "h": H, "boxes": boxes, "text_w": text_w, "pad": pad}
+        d.rectangle([mx, top, x_end, y], outline=200)
+    if spec.get("note"):
+        d.text((mx, y + 10), spec["note"], font=fn, fill=200, anchor="lt")
+    clean = np.asarray(ink, np.float32) / 255.0
+    printed = R.ink(np.asarray(sheet), clean, (22, 24, 30), 0.93)
+    alpha = np.full((H, W), 255, np.uint8)
+    photo, Hm = _photograph(printed, alpha, knobs, rng)
+    Image.fromarray(photo).save(path)
+    text_w = [[int((fb if i == 0 else f).getbbox(t)[2]) for t in row] for i, row in enumerate(cells)]
+    rows_y = [[r[0][0], r[-1][2], (r[0][1] + r[0][3]) / 2] for r in boxes]
+    return {"w": photo.shape[1], "h": photo.shape[0], "sheet": [W, H], "H": Hm.tolist(), "boxes": boxes,
+            "text_w": text_w, "pad": pad, "rows": rows_y, "lh": rh}
 
 
 def table_probe(spec, info, img):
@@ -77,6 +173,7 @@ def table_probe(spec, info, img):
 
 def table_ask(spec, info, rng, diff):
     cols, rows = spec["columns"], spec["rows"]
+    noun, plural = spec.get("noun", "team"), spec.get("plural", "teams")
     c = pick(rng, cols[1:])
     ci = cols.index(c)
     qt = pick(rng, ["lookup", "lookup", "col_sum", "row_max", "count_gt"])
@@ -94,19 +191,25 @@ def table_ask(spec, info, rng, diff):
         if v[0] == v[1]:
             raise Reject("tied maximum")
         best = max(rows, key=lambda r: r[ci])
-        return Question(qt, {"col": c}, f"Which team has the highest {c}?", best[0], "exact", format_hint="a team name",
-                        choices=[r[0] for r in rows])
+        return Question(qt, {"col": c}, f"Which {noun} has the highest {c}?", best[0], "exact",
+                        format_hint=f"a {noun} name", choices=[r[0] for r in rows])
     vals = [r[ci] for r in rows]
     t = int(np.median(vals)) + int(rng.integers(-5, 6))
     if t in vals:
         raise Reject("threshold equals a value")
-    return Question(qt, {"col": c, "threshold": t}, f"How many teams have a {c} greater than {t}?",
+    return Question(qt, {"col": c, "threshold": t}, f"How many {plural} have a {c} greater than {t}?",
                     sum(v > t for v in vals), "numeric", format_hint="a whole number")
 
 
 # ---------------------------------------------------------------- receipt
 
 GROCERIES = FRUITS + ["Bread", "Milk", "Eggs", "Rice", "Coffee", "Butter", "Cheese", "Pasta", "Tea", "Honey"]
+STORE_KINDS = ["Market", "Grocers", "Fresh Mart", "Food Hall", "Corner Store", "Supermarket"]
+STREETS = ["Road", "Street", "Lane", "Avenue", "Parade", "Way"]
+CITIES = ["Northfield", "Lakeside", "Easton", "Millbrook", "Westgate", "Hillcrest", "Riverton", "Oakdale"]
+CASHIERS = ["MAYA", "OMAR", "LENA", "RAVI", "JUNE", "TOMAS", "ADA", "KENJI"]
+# symbol, position, decimal mark
+CURRENCIES = [["$", "pre", "."], ["£", "pre", "."], ["€", "post", ","], ["CHF", "pre", "."], ["₹", "pre", "."]]
 
 
 def receipt_build(rng, diff):
@@ -115,15 +218,45 @@ def receipt_build(rng, diff):
              for nm in pick(rng, GROCERIES, n)]
     disc = int(rng.integers(1, 20)) * 25 if diff != "easy" else 0
     tax = int(pick(rng, [0, 5, 8, 12, 18]))
-    knobs = {"items": n, "discount": disc > 0, "skew_deg": float(rng.uniform(-4, 4)) if diff == "hard" else 0.0,
-             "blur": 0.8 if diff == "hard" else 0.0, "ink": "faded" if diff == "hard" else "dark",
-             "font_px": {"easy": 18, "medium": 16, "hard": 14}[diff]}
-    spec = {"store": pick(rng, WORDS) + " Market", "items": items, "discount_cents": disc, "tax_rate_pct": tax}
+    cur = pick(rng, CURRENCIES)
+    header = {
+        "street": f"{int(rng.integers(2, 480))} {pick(rng, WORDS)} {pick(rng, STREETS)}",
+        "city": pick(rng, CITIES),
+        "phone": "TEL " + "".join(str(int(v)) for v in rng.integers(0, 10, 3)) + "-"
+                 + "".join(str(int(v)) for v in rng.integers(0, 10, 4)),
+        "date": f"{int(rng.integers(1, 29)):02d}/{int(rng.integers(1, 13)):02d}/2026",
+        "time": f"{int(rng.integers(7, 23)):02d}:{int(rng.integers(0, 60)):02d}",
+        "till": int(rng.integers(1, 9)), "cashier": pick(rng, CASHIERS),
+        "receipt_no": int(rng.integers(1000, 999999)),
+        "barcode": "".join(str(int(v)) for v in rng.integers(0, 10, 12)),
+    }
+    sub = sum(it["qty"] * it["price_cents"] for it in items) - disc
+    total = sub + (sub * tax + 50) // 100
+    if diff != "easy" and rng.random() < 0.6:
+        step = int(pick(rng, [500, 1000, 2000]))
+        tender = {"kind": "cash", "paid_cents": (total // step + 1) * step}
+    else:
+        tender = {"kind": "card", "last4": "".join(str(int(v)) for v in rng.integers(0, 10, 4))}
+    face = pick(rng, ["courier", "mono"])
+    if cur[0] == "₹":
+        face = "mono"  # Courier Prime has no rupee sign
+    knobs = {"items": n, "discount": disc > 0, "blur": 0.8 if diff == "hard" else (0.3 if diff == "medium" else 0.0),
+             "ink": "faded" if diff == "hard" else "dark", "font_px": {"easy": 18, "medium": 16, "hard": 15}[diff],
+             "face": face, "layout": "twoline" if diff == "hard" and rng.random() < 0.6 else "inline",
+             "thermal_fade": [0.15, 0.28, 0.38][("easy", "medium", "hard").index(diff)],
+             "dropout": [0.0, 0.015, 0.035][("easy", "medium", "hard").index(diff)]}
+    knobs.update(_photo_knobs(rng, diff, (1.0, 2.0, 3.0)))
+    spec = {"store": pick(rng, WORDS) + " " + pick(rng, STORE_KINDS), "items": items, "discount_cents": disc,
+            "tax_rate_pct": tax, "currency": cur, "header": header, "tender": tender}
     return spec, knobs
 
 
-def _money(c):
-    return f"{c // 100}.{c % 100:02d}"
+def _money(c, cur=None, sym=False):
+    dec = cur[2] if cur else "."
+    s = f"{c // 100}{dec}{c % 100:02d}"
+    if sym and cur:
+        s = f"{cur[0]}{s}" if cur[1] == "pre" else f"{s} {cur[0]}"
+    return s
 
 
 def _totals(spec):
@@ -133,49 +266,113 @@ def _totals(spec):
     return sub, base, tax, base + tax
 
 
-def receipt_render(spec, knobs, path):
-    f = font(knobs["font_px"], mono=True)
-    fb = font(knobs["font_px"] + 4, mono=True, bold=True)
-    ink = (20, 20, 20) if knobs["ink"] == "dark" else (95, 95, 105)
-    width_chars = 34
-    lh = int(knobs["font_px"] * 1.45)
-    lines = [("title", spec["store"].upper()), ("rule", "")]
+def _receipt_lines(spec, knobs, width):
+    """(kind, text, key) lines; key lines carry answer-bearing tokens checked by the probe."""
+    cur = spec.get("currency")
+    hd = spec.get("header")
+    lines = [("title", spec["store"].upper(), False)]
+    if hd:
+        lines += [("center", hd["street"].upper(), False), ("center", hd["city"].upper(), False),
+                  ("center", hd["phone"], False), ("blank", "", False),
+                  ("text", f"DATE {hd['date']}".ljust(width - 10) + f"TIME {hd['time']}"[-10:].rjust(10), False),
+                  ("text", f"TILL {hd['till']:02d}  CASHIER {hd['cashier']}".ljust(width - 8)
+                   + f"#{hd['receipt_no']:06d}".rjust(8), False)]
+    lines.append(("rule", "-" * width, False))
+
+    def row(left, amount, kind="text"):
+        return (kind, left.ljust(width - 10)[: width - 10] + amount.rjust(10), True)
+
     for it in spec["items"]:
-        lines.append(("text", f"{it['qty']} x {it['name']} @ {_money(it['price_cents'])}"
-                      .ljust(width_chars - 9) + _money(it["qty"] * it["price_cents"]).rjust(9)))
-    sub, base, tax, total = _totals(spec)
-    lines.append(("rule", ""))
-    lines.append(("text", "SUBTOTAL".ljust(width_chars - 9) + _money(sub).rjust(9)))
-    if spec["discount_cents"]:
-        lines.append(("text", "DISCOUNT".ljust(width_chars - 9) + ("-" + _money(spec["discount_cents"])).rjust(9)))
-    lines.append(("text", f"TAX {spec['tax_rate_pct']}%".ljust(width_chars - 9) + _money(tax).rjust(9)))
-    lines.append(("bold", "TOTAL".ljust(width_chars - 9) + _money(total).rjust(9)))
-    W = int(max((fb if k in ("bold", "title") else f).getlength(t) for k, t in lines)) + 60
-    H = lh * (len(lines) + 2) + 60
-    paper = Image.new("RGB", (W, H), (252, 250, 244))
-    d = ImageDraw.Draw(paper)
-    y = 30
-    bands = []
-    for kind, txt in lines:
-        if kind == "rule":
-            d.line([30, y + lh // 2, W - 30, y + lh // 2], fill=ink)
-        elif kind == "title":
-            d.text((W / 2, y + lh / 2), txt, font=fb, fill=ink, anchor="mm")
+        amt = _money(it["qty"] * it["price_cents"], cur)
+        if knobs.get("layout") == "twoline":
+            lines.append(("text", it["name"].upper(), True))
+            lines.append(row(f"  {it['qty']} @ {_money(it['price_cents'], cur)}", amt))
         else:
-            d.text((30, y + lh / 2), txt, font=fb if kind == "bold" else f, fill=ink, anchor="lm")
-            right = 30 + (fb if kind == "bold" else f).getbbox(txt)[2]
-            bands.append([y, y + lh, right])
+            lines.append(row(f"{it['qty']} x {it['name']} @ {_money(it['price_cents'], cur)}", amt))
+    sub, base, tax, total = _totals(spec)
+    lines.append(("rule", "-" * width, False))
+    lines.append(row("SUBTOTAL", _money(sub, cur)))
+    if spec["discount_cents"]:
+        lines.append(row("DISCOUNT", "-" + _money(spec["discount_cents"], cur)))
+    lines.append(row(f"TAX {spec['tax_rate_pct']}%", _money(tax, cur)))
+    lines.append(row("TOTAL", _money(total, cur, sym=True), "bold"))
+    td = spec.get("tender")
+    if td and td["kind"] == "cash":
+        lines.append(("text", "CASH".ljust(width - 10) + _money(td["paid_cents"], cur).rjust(10), False))
+        lines.append(("text", "CHANGE".ljust(width - 10) + _money(td["paid_cents"] - total, cur).rjust(10), False))
+    elif td:
+        lines.append(("text", f"CARD **** {td['last4']}".ljust(width - 10) + _money(total, cur).rjust(10), False))
+    if hd:
+        lines += [("blank", "", False), ("center", "THANK YOU FOR SHOPPING", False), ("barcode", hd["barcode"], False)]
+    return lines
+
+
+def _serrated(W, H, tooth):
+    a = Image.new("L", (W, H), 0)
+    pts = [(0, tooth)]
+    for x in range(0, W + tooth, tooth):
+        pts.append((min(x, W), 0 if (x // tooth) % 2 else tooth))
+    pts += [(W, H - tooth)]
+    for x in range(W, -tooth, -tooth):
+        pts.append((max(x, 0), H if (x // tooth) % 2 else H - tooth))
+    ImageDraw.Draw(a).polygon(pts, fill=255)
+    return np.asarray(a)
+
+
+def receipt_render(spec, knobs, path):
+    rng = np.random.default_rng(knobs.get("noise_seed", 0))
+    face = knobs.get("face", "mono")
+    f = font(knobs["font_px"], face=face)
+    fb = font(knobs["font_px"], bold=True, face=face)
+    ftitle = font(knobs["font_px"] + 6, bold=True, face=face)
+    width = 36
+    cw = f.getlength("0")
+    lh = int(knobs["font_px"] * 1.45)
+    lines = _receipt_lines(spec, knobs, width)
+    mx = 26
+    W = int(cw * width) + 2 * mx
+    hgt = sum(lh * (3 if k == "barcode" else 1) for k, _, _ in lines)
+    H = hgt + 2 * 36
+    ink = Image.new("L", (W, H), 0)
+    d = ImageDraw.Draw(ink)
+    y = 36
+    bands, tokens, rows = [], [], []
+    for kind, txt, key in lines:
+        if kind == "title":
+            d.text((W / 2, y + lh / 2), txt, font=ftitle, fill=255, anchor="mm")
+            bands.append([y, y + lh, int(W / 2 + ftitle.getlength(txt) / 2)])
+        elif kind == "center":
+            d.text((W / 2, y + lh / 2), txt, font=f, fill=255, anchor="mm")
+        elif kind == "rule":
+            d.text((mx, y + lh / 2), txt, font=f, fill=255, anchor="lm")
+        elif kind == "barcode":
+            code, bits = R.ean13(txt)
+            mod = max(1, int((W - 2 * mx) / 110))
+            bx = (W - 95 * mod) // 2
+            for k, b in enumerate(bits):
+                if b == "1":
+                    d.rectangle([bx + k * mod, y, bx + (k + 1) * mod - 1, y + int(lh * 2.1)], fill=255)
+            d.text((W / 2, y + int(lh * 2.6)), code, font=f, fill=255, anchor="mm")
+            y += 2 * lh
+        elif kind in ("text", "bold"):
+            ft = fb if kind == "bold" else f
+            d.text((mx, y + lh / 2), txt, font=ft, fill=255, anchor="lm")
+            bands.append([y, y + lh, int(mx + ft.getlength(txt.rstrip()))])
+            if key:
+                tokens += _token_boxes(txt, mx, y + 2, y + lh - 2, cw)
+                rows.append([mx, mx + cw * len(txt.rstrip()), y + lh / 2])
         y += lh
-    pre = np.asarray(paper).copy()
-    bg = Image.new("RGB", (W + 80, H + 80), (90, 90, 95))
-    bg.paste(paper, (40, 40))
-    out = bg
-    if knobs["skew_deg"]:
-        out = out.rotate(knobs["skew_deg"], resample=Image.BICUBIC, expand=True, fillcolor=(90, 90, 95))
-    if knobs["blur"]:
-        out = out.filter(ImageFilter.GaussianBlur(knobs["blur"]))
-    out.save(path)
-    return {"w": out.width, "h": out.height, "paper_w": W, "bands": bands, "_pre": pre}
+    clean = np.asarray(ink, np.float32) / 255.0
+    worn = R.thermal(clean, rng, knobs.get("thermal_fade", 0.0), knobs.get("dropout", 0.0))
+    base = (250, 249, 245) if knobs["ink"] == "dark" else (246, 244, 238)
+    color, strength = ((26, 24, 32), 0.95) if knobs["ink"] == "dark" else ((78, 76, 92), 0.82)
+    paper = R.paper(rng, W, H, base=base, blotch=4, grain=3)
+    printed = R.ink(paper, worn, color, strength)
+    alpha = _serrated(W, H, 6)
+    photo, Hm = _photograph(printed, alpha, knobs, rng)
+    Image.fromarray(photo).save(path)
+    return {"w": photo.shape[1], "h": photo.shape[0], "paper_w": W, "sheet": [W, H], "H": Hm.tolist(),
+            "bands": bands, "tokens": tokens, "rows": rows, "lh": lh, "_clean": clean, "_worn": worn}
 
 
 def receipt_probe(spec, info, img):
@@ -207,7 +404,7 @@ def receipt_ask(spec, info, rng, diff):
         it = pick(rng, items)
         return Question(qt, {"name": it["name"]}, f"How much was charged in total for {it['name']}?",
                         it["qty"] * it["price_cents"] / 100, "numeric", tolerance=0.005,
-                        format_hint="a number with two decimals")
+                        format_hint="a number with two decimals, no currency sign")
     lt = sorted((it["qty"] * it["price_cents"] for it in items), reverse=True)
     if lt[0] - lt[1] < 100:
         raise Reject("top two line totals within 1.00")
