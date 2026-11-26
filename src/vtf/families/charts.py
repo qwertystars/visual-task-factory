@@ -260,30 +260,52 @@ def bar_render(spec, knobs, path):
             "value_labels": knobs["value_labels"], "overlay_px": overlay_px, "dual_axis": bool(ov), "legend_box": legend_box}
 
 
+def _bar_run(img, g, offset, rgb):
+    """Length of the bar-coloured run from the base toward the tip along one scan line,
+    stepping over gaps up to 14px (an overlay line or marker crossing the bar)."""
+    if g["axis"] == "y":
+        line = img[:, int(round(g["c"] + offset)), :3].astype(int)
+    else:
+        line = img[int(round(g["c"] + offset)), :, :3].astype(int)
+    mask = np.sqrt(((line - rgb) ** 2).sum(-1)) < 12
+    step = -1 if g["tip"] < g["base"] else 1
+    p = int(round(g["base"])) + step * 2
+    if not mask[max(0, min(len(mask) - 1, p))] and not mask[max(0, min(len(mask) - 1, p + step))]:
+        return None
+    last, gap = p, 0
+    while 0 <= p + step < len(mask):
+        p += step
+        if mask[p]:
+            last, gap = p, 0
+        else:
+            gap += 1
+            if gap > 14:
+                break
+    return abs(last - g["base"])
+
+
 def bar_probe(spec, info, img):
     fails = []
     if info["label_overlap"]:
         fails.append("tick labels overlap")
     for i, (g, c) in enumerate(zip(info["bars"], spec["colors"])):
         rgb = np.array(_hex(c))
-        if g["axis"] == "y":
-            col = img[:, int(round(g["c"])), :3].astype(int)
-        else:
-            col = img[int(round(g["c"])), :, :3].astype(int)
-        mask = np.sqrt(((col - rgb) ** 2).sum(-1)) < 12
-        mid = int(round((g["base"] + g["tip"]) / 2))
-        if not mask[mid]:
-            fails.append(f"bar {i} colour not found at its midpoint")
-            continue
-        lo, hi = mid, mid
-        while lo > 0 and mask[lo - 1]:
-            lo -= 1
-        while hi < len(mask) - 1 and mask[hi + 1]:
-            hi += 1
-        measured = hi - lo + 1
         expected = abs(g["base"] - g["tip"])
-        if abs(measured - expected) > 3:
-            fails.append(f"bar {i} length {measured}px, expected {expected:.1f}px")
+        hw = g.get("hw", 0)
+        runs = [_bar_run(img, g, off, rgb) for off in (-0.5 * hw, 0.0, 0.5 * hw)]
+        good = [r for r in runs if r is not None and abs(r - expected) <= 3]
+        if len(good) < 2:
+            got = [None if r is None else round(r, 1) for r in runs]
+            fails.append(f"bar {i} length {got}px, expected {expected:.1f}px")
+        box = info.get("legend_box")
+        if box:
+            tx, ty = (g["tip"], g["c"]) if g["axis"] == "x" else (g["c"], g["tip"])
+            if box[0] - 4 <= tx <= box[2] + 4 and box[1] - 4 <= ty <= box[3] + 4:
+                fails.append(f"bar {i} tip under the legend")
+        if info.get("dual_axis"):
+            ox, oy = info["overlay_px"][i]
+            if abs(oy - g["tip"]) < 8:
+                fails.append(f"overlay marker on bar {i} tip")
     return fails
 
 
@@ -419,6 +441,9 @@ def line_probe(spec, info, img):
         # a point may be hidden under another series' line; allow at most one per series
         if len(miss) > 1:
             fails.append(f"series {s} points {miss} not visible")
+        for name, box in (("legend", info.get("legend_box")), ("band label", info.get("band_box"))):
+            if box and any(box[0] - 4 <= x <= box[2] + 4 and box[1] - 4 <= y <= box[3] + 4 for x, y in pts):
+                fails.append(f"series {s} point under the {name}")
     return fails
 
 
