@@ -383,14 +383,32 @@ def clock_render(spec, knobs, path):
 
 
 def clock_probe(spec, info, img):
+    """Each main hand must stand out from the bare dial along its own length, tip included."""
     fails = []
-    c, R = info["c"], info["R"]
-    for name, (a, L) in info["hands"].items():
-        r = math.radians(a)
-        for frac in (0.35, 0.9):
-            x, y = c + R * L * frac * math.sin(r), c - R * L * frac * math.cos(r)
-            if img[int(round(y)), int(round(x))].astype(int).sum() > 3 * 90:
-                fails.append(f"{name} hand missing at {frac:.0%} of its length")
+    bare, masks = info.pop("_bare"), info.pop("_masks")
+    c, Rd = info["c"], info["R"]
+    diff = np.abs(img.astype(int) - bare.astype(int)).sum(-1)
+    H, W = diff.shape
+    yy, xx = np.mgrid[0:H, 0:W]
+    rr = np.sqrt((xx - c) ** 2 + (yy - c) ** 2)
+    others = {k: v for k, v in masks.items()}
+    for name in ("hour", "minute"):
+        a, L = info["hands"][name]
+        own = masks[name].copy()
+        for k, m in others.items():
+            if k != name:
+                own &= ~m
+        body = own & (rr > 0.3 * L * Rd)
+        tip = own & (rr > 0.8 * L * Rd)
+        if body.sum() < 10 or tip.sum() < 3:
+            fails.append(f"{name} hand hidden by another hand")
+            continue
+        vis = (diff[body] > 60).mean()
+        tvis = (diff[tip] > 45).mean()
+        if vis < 0.6:
+            fails.append(f"{name} hand stands out on {vis:.0%} of its length")
+        if tvis < 0.5:
+            fails.append(f"{name} hand tip stands out on {tvis:.0%}")
     return fails
 
 
