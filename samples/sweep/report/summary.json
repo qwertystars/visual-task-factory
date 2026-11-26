@@ -1,0 +1,2718 @@
+{
+ "models": {
+  "oracle": {
+   "n": 184,
+   "acc": 1.0,
+   "by_family": {
+    "bar_chart": {
+     "n": 40,
+     "acc": 1.0
+    },
+    "clock": {
+     "n": 42,
+     "acc": 1.0
+    },
+    "pie_chart": {
+     "n": 18,
+     "acc": 1.0
+    },
+    "receipt": {
+     "n": 36,
+     "acc": 1.0
+    },
+    "shapes": {
+     "n": 12,
+     "acc": 1.0
+    },
+    "table": {
+     "n": 36,
+     "acc": 1.0
+    }
+   },
+   "by_difficulty": {
+    "medium": {
+     "n": 184,
+     "acc": 1.0
+    }
+   },
+   "by_qtype": {
+    "bar_chart/count_above": {
+     "n": 7,
+     "acc": 1.0
+    },
+    "bar_chart/diff": {
+     "n": 6,
+     "acc": 1.0
+    },
+    "bar_chart/tallest": {
+     "n": 7,
+     "acc": 1.0
+    },
+    "bar_chart/top3": {
+     "n": 6,
+     "acc": 1.0
+    },
+    "bar_chart/value_of": {
+     "n": 14,
+     "acc": 1.0
+    },
+    "clock/time": {
+     "n": 42,
+     "acc": 1.0
+    },
+    "pie_chart/largest": {
+     "n": 3,
+     "acc": 1.0
+    },
+    "pie_chart/share_of": {
+     "n": 12,
+     "acc": 1.0
+    },
+    "pie_chart/smallest": {
+     "n": 3,
+     "acc": 1.0
+    },
+    "receipt/line_total": {
+     "n": 12,
+     "acc": 1.0
+    },
+    "receipt/priciest": {
+     "n": 12,
+     "acc": 1.0
+    },
+    "receipt/total": {
+     "n": 6,
+     "acc": 1.0
+    },
+    "receipt/units": {
+     "n": 6,
+     "acc": 1.0
+    },
+    "shapes/count_color": {
+     "n": 8,
+     "acc": 1.0
+    },
+    "shapes/count_kind": {
+     "n": 2,
+     "acc": 1.0
+    },
+    "shapes/total": {
+     "n": 2,
+     "acc": 1.0
+    },
+    "table/col_sum": {
+     "n": 18,
+     "acc": 1.0
+    },
+    "table/count_gt": {
+     "n": 6,
+     "acc": 1.0
+    },
+    "table/lookup": {
+     "n": 12,
+     "acc": 1.0
+    }
+   },
+   "cells": {
+    "bar_chart|medium": {
+     "n": 40,
+     "acc": 1.0
+    },
+    "clock|medium": {
+     "n": 42,
+     "acc": 1.0
+    },
+    "pie_chart|medium": {
+     "n": 18,
+     "acc": 1.0
+    },
+    "receipt|medium": {
+     "n": 36,
+     "acc": 1.0
+    },
+    "shapes|medium": {
+     "n": 12,
+     "acc": 1.0
+    },
+    "table|medium": {
+     "n": 36,
+     "acc": 1.0
+    }
+   },
+   "modes": {
+    "correct": 184
+   },
+   "median_latency_s": 0.0
+  },
+  "random": {
+   "n": 184,
+   "acc": 0.06521739130434782,
+   "by_family": {
+    "bar_chart": {
+     "n": 40,
+     "acc": 0.15
+    },
+    "clock": {
+     "n": 42,
+     "acc": 0.0
+    },
+    "pie_chart": {
+     "n": 18,
+     "acc": 0.3333333333333333
+    },
+    "receipt": {
+     "n": 36,
+     "acc": 0.0
+    },
+    "shapes": {
+     "n": 12,
+     "acc": 0.0
+    },
+    "table": {
+     "n": 36,
+     "acc": 0.0
+    }
+   },
+   "by_difficulty": {
+    "medium": {
+     "n": 184,
+     "acc": 0.06521739130434782
+    }
+   },
+   "by_qtype": {
+    "bar_chart/count_above": {
+     "n": 7,
+     "acc": 0.0
+    },
+    "bar_chart/diff": {
+     "n": 6,
+     "acc": 0.0
+    },
+    "bar_chart/tallest": {
+     "n": 7,
+     "acc": 0.0
+    },
+    "bar_chart/top3": {
+     "n": 6,
+     "acc": 0.0
+    },
+    "bar_chart/value_of": {
+     "n": 14,
+     "acc": 0.42857142857142855
+    },
+    "clock/time": {
+     "n": 42,
+     "acc": 0.0
+    },
+    "pie_chart/largest": {
+     "n": 3,
+     "acc": 0.0
+    },
+    "pie_chart/share_of": {
+     "n": 12,
+     "acc": 0.25
+    },
+    "pie_chart/smallest": {
+     "n": 3,
+     "acc": 1.0
+    },
+    "receipt/line_total": {
+     "n": 12,
+     "acc": 0.0
+    },
+    "receipt/priciest": {
+     "n": 12,
+     "acc": 0.0
+    },
+    "receipt/total": {
+     "n": 6,
+     "acc": 0.0
+    },
+    "receipt/units": {
+     "n": 6,
+     "acc": 0.0
+    },
+    "shapes/count_color": {
+     "n": 8,
+     "acc": 0.0
+    },
+    "shapes/count_kind": {
+     "n": 2,
+     "acc": 0.0
+    },
+    "shapes/total": {
+     "n": 2,
+     "acc": 0.0
+    },
+    "table/col_sum": {
+     "n": 18,
+     "acc": 0.0
+    },
+    "table/count_gt": {
+     "n": 6,
+     "acc": 0.0
+    },
+    "table/lookup": {
+     "n": 12,
+     "acc": 0.0
+    }
+   },
+   "cells": {
+    "bar_chart|medium": {
+     "n": 40,
+     "acc": 0.15
+    },
+    "clock|medium": {
+     "n": 42,
+     "acc": 0.0
+    },
+    "pie_chart|medium": {
+     "n": 18,
+     "acc": 0.3333333333333333
+    },
+    "receipt|medium": {
+     "n": 36,
+     "acc": 0.0
+    },
+    "shapes|medium": {
+     "n": 12,
+     "acc": 0.0
+    },
+    "table|medium": {
+     "n": 36,
+     "acc": 0.0
+    }
+   },
+   "modes": {
+    "wrong": 165,
+    "correct": 12,
+    "near_miss": 7
+   },
+   "median_latency_s": 0.0
+  },
+  "qwen2.5-vl-3b": {
+   "n": 184,
+   "acc": 0.5543478260869565,
+   "by_family": {
+    "bar_chart": {
+     "n": 40,
+     "acc": 0.9
+    },
+    "clock": {
+     "n": 42,
+     "acc": 0.0
+    },
+    "pie_chart": {
+     "n": 18,
+     "acc": 0.7777777777777778
+    },
+    "receipt": {
+     "n": 36,
+     "acc": 0.8055555555555556
+    },
+    "shapes": {
+     "n": 12,
+     "acc": 0.4166666666666667
+    },
+    "table": {
+     "n": 36,
+     "acc": 0.5
+    }
+   },
+   "by_difficulty": {
+    "medium": {
+     "n": 184,
+     "acc": 0.5543478260869565
+    }
+   },
+   "by_qtype": {
+    "bar_chart/count_above": {
+     "n": 7,
+     "acc": 1.0
+    },
+    "bar_chart/diff": {
+     "n": 6,
+     "acc": 0.6666666666666666
+    },
+    "bar_chart/tallest": {
+     "n": 7,
+     "acc": 1.0
+    },
+    "bar_chart/top3": {
+     "n": 6,
+     "acc": 0.6666666666666666
+    },
+    "bar_chart/value_of": {
+     "n": 14,
+     "acc": 1.0
+    },
+    "clock/time": {
+     "n": 42,
+     "acc": 0.0
+    },
+    "pie_chart/largest": {
+     "n": 3,
+     "acc": 1.0
+    },
+    "pie_chart/share_of": {
+     "n": 12,
+     "acc": 0.6666666666666666
+    },
+    "pie_chart/smallest": {
+     "n": 3,
+     "acc": 1.0
+    },
+    "receipt/line_total": {
+     "n": 12,
+     "acc": 1.0
+    },
+    "receipt/priciest": {
+     "n": 12,
+     "acc": 0.8333333333333334
+    },
+    "receipt/total": {
+     "n": 6,
+     "acc": 1.0
+    },
+    "receipt/units": {
+     "n": 6,
+     "acc": 0.16666666666666666
+    },
+    "shapes/count_color": {
+     "n": 8,
+     "acc": 0.375
+    },
+    "shapes/count_kind": {
+     "n": 2,
+     "acc": 0.0
+    },
+    "shapes/total": {
+     "n": 2,
+     "acc": 1.0
+    },
+    "table/col_sum": {
+     "n": 18,
+     "acc": 0.0
+    },
+    "table/count_gt": {
+     "n": 6,
+     "acc": 1.0
+    },
+    "table/lookup": {
+     "n": 12,
+     "acc": 1.0
+    }
+   },
+   "cells": {
+    "bar_chart|medium": {
+     "n": 40,
+     "acc": 0.9
+    },
+    "clock|medium": {
+     "n": 42,
+     "acc": 0.0
+    },
+    "pie_chart|medium": {
+     "n": 18,
+     "acc": 0.7777777777777778
+    },
+    "receipt|medium": {
+     "n": 36,
+     "acc": 0.8055555555555556
+    },
+    "shapes|medium": {
+     "n": 12,
+     "acc": 0.4166666666666667
+    },
+    "table|medium": {
+     "n": 36,
+     "acc": 0.5
+    }
+   },
+   "modes": {
+    "correct": 102,
+    "wrong": 67,
+    "near_miss": 15
+   },
+   "median_latency_s": 9.71
+  },
+  "gemma3-4b": {
+   "n": 184,
+   "acc": 0.40217391304347827,
+   "by_family": {
+    "bar_chart": {
+     "n": 40,
+     "acc": 0.6
+    },
+    "clock": {
+     "n": 42,
+     "acc": 0.0
+    },
+    "pie_chart": {
+     "n": 18,
+     "acc": 0.6111111111111112
+    },
+    "receipt": {
+     "n": 36,
+     "acc": 0.6944444444444444
+    },
+    "shapes": {
+     "n": 12,
+     "acc": 0.0
+    },
+    "table": {
+     "n": 36,
+     "acc": 0.3888888888888889
+    }
+   },
+   "by_difficulty": {
+    "medium": {
+     "n": 184,
+     "acc": 0.40217391304347827
+    }
+   },
+   "by_qtype": {
+    "bar_chart/count_above": {
+     "n": 7,
+     "acc": 0.42857142857142855
+    },
+    "bar_chart/diff": {
+     "n": 6,
+     "acc": 0.5
+    },
+    "bar_chart/tallest": {
+     "n": 7,
+     "acc": 0.8571428571428571
+    },
+    "bar_chart/top3": {
+     "n": 6,
+     "acc": 0.0
+    },
+    "bar_chart/value_of": {
+     "n": 14,
+     "acc": 0.8571428571428571
+    },
+    "clock/time": {
+     "n": 42,
+     "acc": 0.0
+    },
+    "pie_chart/largest": {
+     "n": 3,
+     "acc": 1.0
+    },
+    "pie_chart/share_of": {
+     "n": 12,
+     "acc": 0.6666666666666666
+    },
+    "pie_chart/smallest": {
+     "n": 3,
+     "acc": 0.0
+    },
+    "receipt/line_total": {
+     "n": 12,
+     "acc": 0.75
+    },
+    "receipt/priciest": {
+     "n": 12,
+     "acc": 0.6666666666666666
+    },
+    "receipt/total": {
+     "n": 6,
+     "acc": 1.0
+    },
+    "receipt/units": {
+     "n": 6,
+     "acc": 0.3333333333333333
+    },
+    "shapes/count_color": {
+     "n": 8,
+     "acc": 0.0
+    },
+    "shapes/count_kind": {
+     "n": 2,
+     "acc": 0.0
+    },
+    "shapes/total": {
+     "n": 2,
+     "acc": 0.0
+    },
+    "table/col_sum": {
+     "n": 18,
+     "acc": 0.0
+    },
+    "table/count_gt": {
+     "n": 6,
+     "acc": 0.3333333333333333
+    },
+    "table/lookup": {
+     "n": 12,
+     "acc": 1.0
+    }
+   },
+   "cells": {
+    "bar_chart|medium": {
+     "n": 40,
+     "acc": 0.6
+    },
+    "clock|medium": {
+     "n": 42,
+     "acc": 0.0
+    },
+    "pie_chart|medium": {
+     "n": 18,
+     "acc": 0.6111111111111112
+    },
+    "receipt|medium": {
+     "n": 36,
+     "acc": 0.6944444444444444
+    },
+    "shapes|medium": {
+     "n": 12,
+     "acc": 0.0
+    },
+    "table|medium": {
+     "n": 36,
+     "acc": 0.3888888888888889
+    }
+   },
+   "modes": {
+    "correct": 74,
+    "near_miss": 21,
+    "wrong": 89
+   },
+   "median_latency_s": 21.47
+  },
+  "smolvlm2-2.2b": {
+   "n": 184,
+   "acc": 0.27717391304347827,
+   "by_family": {
+    "bar_chart": {
+     "n": 40,
+     "acc": 0.45
+    },
+    "clock": {
+     "n": 42,
+     "acc": 0.0
+    },
+    "pie_chart": {
+     "n": 18,
+     "acc": 0.4444444444444444
+    },
+    "receipt": {
+     "n": 36,
+     "acc": 0.5277777777777778
+    },
+    "shapes": {
+     "n": 12,
+     "acc": 0.08333333333333333
+    },
+    "table": {
+     "n": 36,
+     "acc": 0.1388888888888889
+    }
+   },
+   "by_difficulty": {
+    "medium": {
+     "n": 184,
+     "acc": 0.27717391304347827
+    }
+   },
+   "by_qtype": {
+    "bar_chart/count_above": {
+     "n": 7,
+     "acc": 0.8571428571428571
+    },
+    "bar_chart/diff": {
+     "n": 6,
+     "acc": 0.0
+    },
+    "bar_chart/tallest": {
+     "n": 7,
+     "acc": 0.5714285714285714
+    },
+    "bar_chart/top3": {
+     "n": 6,
+     "acc": 0.0
+    },
+    "bar_chart/value_of": {
+     "n": 14,
+     "acc": 0.5714285714285714
+    },
+    "clock/time": {
+     "n": 42,
+     "acc": 0.0
+    },
+    "pie_chart/largest": {
+     "n": 3,
+     "acc": 0.6666666666666666
+    },
+    "pie_chart/share_of": {
+     "n": 12,
+     "acc": 0.5
+    },
+    "pie_chart/smallest": {
+     "n": 3,
+     "acc": 0.0
+    },
+    "receipt/line_total": {
+     "n": 12,
+     "acc": 0.9166666666666666
+    },
+    "receipt/priciest": {
+     "n": 12,
+     "acc": 0.16666666666666666
+    },
+    "receipt/total": {
+     "n": 6,
+     "acc": 1.0
+    },
+    "receipt/units": {
+     "n": 6,
+     "acc": 0.0
+    },
+    "shapes/count_color": {
+     "n": 8,
+     "acc": 0.125
+    },
+    "shapes/count_kind": {
+     "n": 2,
+     "acc": 0.0
+    },
+    "shapes/total": {
+     "n": 2,
+     "acc": 0.0
+    },
+    "table/col_sum": {
+     "n": 18,
+     "acc": 0.0
+    },
+    "table/count_gt": {
+     "n": 6,
+     "acc": 0.0
+    },
+    "table/lookup": {
+     "n": 12,
+     "acc": 0.4166666666666667
+    }
+   },
+   "cells": {
+    "bar_chart|medium": {
+     "n": 40,
+     "acc": 0.45
+    },
+    "clock|medium": {
+     "n": 42,
+     "acc": 0.0
+    },
+    "pie_chart|medium": {
+     "n": 18,
+     "acc": 0.4444444444444444
+    },
+    "receipt|medium": {
+     "n": 36,
+     "acc": 0.5277777777777778
+    },
+    "shapes|medium": {
+     "n": 12,
+     "acc": 0.08333333333333333
+    },
+    "table|medium": {
+     "n": 36,
+     "acc": 0.1388888888888889
+    }
+   },
+   "modes": {
+    "near_miss": 22,
+    "correct": 51,
+    "wrong": 108,
+    "unparseable": 3
+   },
+   "median_latency_s": 6.83
+  }
+ },
+ "knob_effects": {
+  "oracle": [
+   {
+    "family": "bar_chart",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 34,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "bar_chart",
+    "knob": "horizontal",
+    "values": {
+     "false": {
+      "n": 34,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "bar_chart",
+    "knob": "label_rotation",
+    "values": {
+     "0": {
+      "n": 12,
+      "acc": 1.0
+     },
+     "30": {
+      "n": 16,
+      "acc": 1.0
+     },
+     "45": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "90": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "bar_chart",
+    "knob": "n_bars",
+    "values": {
+     "6": {
+      "n": 14,
+      "acc": 1.0
+     },
+     "7": {
+      "n": 20,
+      "acc": 1.0
+     },
+     "8": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "bar_chart",
+    "knob": "value_labels",
+    "values": {
+     "false": {
+      "n": 25,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "pie_chart",
+    "knob": "labels",
+    "values": {
+     "\"legend\"": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "\"name\"": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "\"pct\"": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "pie_chart",
+    "knob": "n_slices",
+    "values": {
+     "4": {
+      "n": 9,
+      "acc": 1.0
+     },
+     "5": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "6": {
+      "n": 3,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "pie_chart",
+    "knob": "start_angle",
+    "values": {
+     "0": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "135": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "45": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "minute_ticks",
+    "values": {
+     "false": {
+      "n": 36,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "numerals",
+    "values": {
+     "\"all\"": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "\"none\"": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "\"quarters\"": {
+      "n": 12,
+      "acc": 1.0
+     },
+     "\"roman\"": {
+      "n": 18,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "second_hand",
+    "values": {
+     "false": {
+      "n": 36,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "similar_hands",
+    "values": {
+     "false": {
+      "n": 36,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "font_px",
+    "values": {
+     "10": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "12": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "15": {
+      "n": 18,
+      "acc": 1.0
+     },
+     "20": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "rows",
+    "values": {
+     "6": {
+      "n": 18,
+      "acc": 1.0
+     },
+     "8": {
+      "n": 18,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "rules",
+    "values": {
+     "false": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "zebra",
+    "values": {
+     "false": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "blur",
+    "values": {
+     "0.0": {
+      "n": 24,
+      "acc": 1.0
+     },
+     "0.8": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "1.5": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "ink",
+    "values": {
+     "\"dark\"": {
+      "n": 30,
+      "acc": 1.0
+     },
+     "\"faded\"": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "items",
+    "values": {
+     "5": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "6": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "7": {
+      "n": 24,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "skew_deg",
+    "values": {
+     "-3.0": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "0.0": {
+      "n": 24,
+      "acc": 1.0
+     },
+     "3.0": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "shapes",
+    "knob": "background",
+    "values": {
+     "\"noise\"": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "\"plain\"": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "shapes",
+    "knob": "n_objects",
+    "values": {
+     "11": {
+      "n": 4,
+      "acc": 1.0
+     },
+     "12": {
+      "n": 2,
+      "acc": 1.0
+     },
+     "8": {
+      "n": 4,
+      "acc": 1.0
+     },
+     "9": {
+      "n": 2,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   }
+  ],
+  "random": [
+   {
+    "family": "pie_chart",
+    "knob": "n_slices",
+    "values": {
+     "4": {
+      "n": 9,
+      "acc": 0.0
+     },
+     "5": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "6": {
+      "n": 3,
+      "acc": 0.0
+     }
+    },
+    "spread": 1.0
+   },
+   {
+    "family": "pie_chart",
+    "knob": "start_angle",
+    "values": {
+     "0": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "135": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "45": {
+      "n": 6,
+      "acc": 0.5
+     }
+    },
+    "spread": 0.5
+   },
+   {
+    "family": "bar_chart",
+    "knob": "n_bars",
+    "values": {
+     "6": {
+      "n": 14,
+      "acc": 0.0
+     },
+     "7": {
+      "n": 20,
+      "acc": 0.3
+     },
+     "8": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.3
+   },
+   {
+    "family": "bar_chart",
+    "knob": "value_labels",
+    "values": {
+     "false": {
+      "n": 25,
+      "acc": 0.24
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.24
+   },
+   {
+    "family": "bar_chart",
+    "knob": "label_rotation",
+    "values": {
+     "0": {
+      "n": 12,
+      "acc": 0.08333333333333333
+     },
+     "30": {
+      "n": 16,
+      "acc": 0.1875
+     },
+     "45": {
+      "n": 6,
+      "acc": 0.16666666666666666
+     },
+     "90": {
+      "n": 6,
+      "acc": 0.16666666666666666
+     }
+    },
+    "spread": 0.10416666666666667
+   },
+   {
+    "family": "bar_chart",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 6,
+      "acc": 0.16666666666666666
+     },
+     "true": {
+      "n": 34,
+      "acc": 0.14705882352941177
+     }
+    },
+    "spread": 0.019607843137254888
+   },
+   {
+    "family": "bar_chart",
+    "knob": "horizontal",
+    "values": {
+     "false": {
+      "n": 34,
+      "acc": 0.14705882352941177
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.16666666666666666
+     }
+    },
+    "spread": 0.019607843137254888
+   },
+   {
+    "family": "pie_chart",
+    "knob": "labels",
+    "values": {
+     "\"legend\"": {
+      "n": 6,
+      "acc": 0.3333333333333333
+     },
+     "\"name\"": {
+      "n": 6,
+      "acc": 0.3333333333333333
+     },
+     "\"pct\"": {
+      "n": 6,
+      "acc": 0.3333333333333333
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "minute_ticks",
+    "values": {
+     "false": {
+      "n": 36,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "numerals",
+    "values": {
+     "\"all\"": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "\"none\"": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "\"quarters\"": {
+      "n": 12,
+      "acc": 0.0
+     },
+     "\"roman\"": {
+      "n": 18,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "second_hand",
+    "values": {
+     "false": {
+      "n": 36,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "similar_hands",
+    "values": {
+     "false": {
+      "n": 36,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "font_px",
+    "values": {
+     "10": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "12": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "15": {
+      "n": 18,
+      "acc": 0.0
+     },
+     "20": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "rows",
+    "values": {
+     "6": {
+      "n": 18,
+      "acc": 0.0
+     },
+     "8": {
+      "n": 18,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "rules",
+    "values": {
+     "false": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "zebra",
+    "values": {
+     "false": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "blur",
+    "values": {
+     "0.0": {
+      "n": 24,
+      "acc": 0.0
+     },
+     "0.8": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "1.5": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "ink",
+    "values": {
+     "\"dark\"": {
+      "n": 30,
+      "acc": 0.0
+     },
+     "\"faded\"": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "items",
+    "values": {
+     "5": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "6": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "7": {
+      "n": 24,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "skew_deg",
+    "values": {
+     "-3.0": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "0.0": {
+      "n": 24,
+      "acc": 0.0
+     },
+     "3.0": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "shapes",
+    "knob": "background",
+    "values": {
+     "\"noise\"": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "\"plain\"": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "shapes",
+    "knob": "n_objects",
+    "values": {
+     "11": {
+      "n": 4,
+      "acc": 0.0
+     },
+     "12": {
+      "n": 2,
+      "acc": 0.0
+     },
+     "8": {
+      "n": 4,
+      "acc": 0.0
+     },
+     "9": {
+      "n": 2,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   }
+  ],
+  "qwen2.5-vl-3b": [
+   {
+    "family": "bar_chart",
+    "knob": "n_bars",
+    "values": {
+     "6": {
+      "n": 14,
+      "acc": 1.0
+     },
+     "7": {
+      "n": 20,
+      "acc": 0.9
+     },
+     "8": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     }
+    },
+    "spread": 0.33333333333333337
+   },
+   {
+    "family": "pie_chart",
+    "knob": "labels",
+    "values": {
+     "\"legend\"": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     },
+     "\"name\"": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     },
+     "\"pct\"": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.33333333333333337
+   },
+   {
+    "family": "pie_chart",
+    "knob": "n_slices",
+    "values": {
+     "4": {
+      "n": 9,
+      "acc": 0.7777777777777778
+     },
+     "5": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     },
+     "6": {
+      "n": 3,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.33333333333333337
+   },
+   {
+    "family": "pie_chart",
+    "knob": "start_angle",
+    "values": {
+     "0": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     },
+     "135": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     },
+     "45": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.33333333333333337
+   },
+   {
+    "family": "receipt",
+    "knob": "items",
+    "values": {
+     "5": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     },
+     "6": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "7": {
+      "n": 24,
+      "acc": 0.7916666666666666
+     }
+    },
+    "spread": 0.33333333333333337
+   },
+   {
+    "family": "table",
+    "knob": "rows",
+    "values": {
+     "6": {
+      "n": 18,
+      "acc": 0.6666666666666666
+     },
+     "8": {
+      "n": 18,
+      "acc": 0.3333333333333333
+     }
+    },
+    "spread": 0.3333333333333333
+   },
+   {
+    "family": "bar_chart",
+    "knob": "label_rotation",
+    "values": {
+     "0": {
+      "n": 12,
+      "acc": 0.75
+     },
+     "30": {
+      "n": 16,
+      "acc": 1.0
+     },
+     "45": {
+      "n": 6,
+      "acc": 0.8333333333333334
+     },
+     "90": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.25
+   },
+   {
+    "family": "receipt",
+    "knob": "blur",
+    "values": {
+     "0.0": {
+      "n": 24,
+      "acc": 0.75
+     },
+     "0.8": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "1.5": {
+      "n": 6,
+      "acc": 0.8333333333333334
+     }
+    },
+    "spread": 0.25
+   },
+   {
+    "family": "shapes",
+    "knob": "n_objects",
+    "values": {
+     "11": {
+      "n": 4,
+      "acc": 0.5
+     },
+     "12": {
+      "n": 2,
+      "acc": 0.0
+     },
+     "8": {
+      "n": 4,
+      "acc": 0.75
+     },
+     "9": {
+      "n": 2,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.25
+   },
+   {
+    "family": "receipt",
+    "knob": "skew_deg",
+    "values": {
+     "-3.0": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     },
+     "0.0": {
+      "n": 24,
+      "acc": 0.875
+     },
+     "3.0": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     }
+    },
+    "spread": 0.20833333333333337
+   },
+   {
+    "family": "shapes",
+    "knob": "background",
+    "values": {
+     "\"noise\"": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "\"plain\"": {
+      "n": 6,
+      "acc": 0.3333333333333333
+     }
+    },
+    "spread": 0.16666666666666669
+   },
+   {
+    "family": "bar_chart",
+    "knob": "value_labels",
+    "values": {
+     "false": {
+      "n": 25,
+      "acc": 0.96
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.8
+     }
+    },
+    "spread": 0.15999999999999992
+   },
+   {
+    "family": "bar_chart",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 34,
+      "acc": 0.8823529411764706
+     }
+    },
+    "spread": 0.11764705882352944
+   },
+   {
+    "family": "bar_chart",
+    "knob": "horizontal",
+    "values": {
+     "false": {
+      "n": 34,
+      "acc": 0.9117647058823529
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.8333333333333334
+     }
+    },
+    "spread": 0.07843137254901955
+   },
+   {
+    "family": "receipt",
+    "knob": "ink",
+    "values": {
+     "\"dark\"": {
+      "n": 30,
+      "acc": 0.8
+     },
+     "\"faded\"": {
+      "n": 6,
+      "acc": 0.8333333333333334
+     }
+    },
+    "spread": 0.033333333333333326
+   },
+   {
+    "family": "clock",
+    "knob": "minute_ticks",
+    "values": {
+     "false": {
+      "n": 36,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "numerals",
+    "values": {
+     "\"all\"": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "\"none\"": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "\"quarters\"": {
+      "n": 12,
+      "acc": 0.0
+     },
+     "\"roman\"": {
+      "n": 18,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "second_hand",
+    "values": {
+     "false": {
+      "n": 36,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "similar_hands",
+    "values": {
+     "false": {
+      "n": 36,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "font_px",
+    "values": {
+     "10": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "12": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "15": {
+      "n": 18,
+      "acc": 0.5
+     },
+     "20": {
+      "n": 6,
+      "acc": 0.5
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "rules",
+    "values": {
+     "false": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.5
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "zebra",
+    "values": {
+     "false": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.5
+     }
+    },
+    "spread": 0.0
+   }
+  ],
+  "gemma3-4b": [
+   {
+    "family": "table",
+    "knob": "rows",
+    "values": {
+     "6": {
+      "n": 18,
+      "acc": 0.6666666666666666
+     },
+     "8": {
+      "n": 18,
+      "acc": 0.1111111111111111
+     }
+    },
+    "spread": 0.5555555555555556
+   },
+   {
+    "family": "pie_chart",
+    "knob": "n_slices",
+    "values": {
+     "4": {
+      "n": 9,
+      "acc": 0.5555555555555556
+     },
+     "5": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "6": {
+      "n": 3,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.5
+   },
+   {
+    "family": "bar_chart",
+    "knob": "label_rotation",
+    "values": {
+     "0": {
+      "n": 12,
+      "acc": 0.3333333333333333
+     },
+     "30": {
+      "n": 16,
+      "acc": 0.8125
+     },
+     "45": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     },
+     "90": {
+      "n": 6,
+      "acc": 0.5
+     }
+    },
+    "spread": 0.4791666666666667
+   },
+   {
+    "family": "receipt",
+    "knob": "skew_deg",
+    "values": {
+     "-3.0": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     },
+     "0.0": {
+      "n": 24,
+      "acc": 0.7916666666666666
+     },
+     "3.0": {
+      "n": 6,
+      "acc": 0.3333333333333333
+     }
+    },
+    "spread": 0.4583333333333333
+   },
+   {
+    "family": "receipt",
+    "knob": "items",
+    "values": {
+     "5": {
+      "n": 6,
+      "acc": 0.8333333333333334
+     },
+     "6": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "7": {
+      "n": 24,
+      "acc": 0.5833333333333334
+     }
+    },
+    "spread": 0.41666666666666663
+   },
+   {
+    "family": "pie_chart",
+    "knob": "labels",
+    "values": {
+     "\"legend\"": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "\"name\"": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "\"pct\"": {
+      "n": 6,
+      "acc": 0.8333333333333334
+     }
+    },
+    "spread": 0.33333333333333337
+   },
+   {
+    "family": "pie_chart",
+    "knob": "start_angle",
+    "values": {
+     "0": {
+      "n": 6,
+      "acc": 0.8333333333333334
+     },
+     "135": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "45": {
+      "n": 6,
+      "acc": 0.5
+     }
+    },
+    "spread": 0.33333333333333337
+   },
+   {
+    "family": "receipt",
+    "knob": "blur",
+    "values": {
+     "0.0": {
+      "n": 24,
+      "acc": 0.6666666666666666
+     },
+     "0.8": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     },
+     "1.5": {
+      "n": 6,
+      "acc": 0.8333333333333334
+     }
+    },
+    "spread": 0.16666666666666674
+   },
+   {
+    "family": "receipt",
+    "knob": "ink",
+    "values": {
+     "\"dark\"": {
+      "n": 30,
+      "acc": 0.6666666666666666
+     },
+     "\"faded\"": {
+      "n": 6,
+      "acc": 0.8333333333333334
+     }
+    },
+    "spread": 0.16666666666666674
+   },
+   {
+    "family": "table",
+    "knob": "font_px",
+    "values": {
+     "10": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "12": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "15": {
+      "n": 18,
+      "acc": 0.3333333333333333
+     },
+     "20": {
+      "n": 6,
+      "acc": 0.3333333333333333
+     }
+    },
+    "spread": 0.16666666666666669
+   },
+   {
+    "family": "bar_chart",
+    "knob": "n_bars",
+    "values": {
+     "6": {
+      "n": 14,
+      "acc": 0.6428571428571429
+     },
+     "7": {
+      "n": 20,
+      "acc": 0.6
+     },
+     "8": {
+      "n": 6,
+      "acc": 0.5
+     }
+    },
+    "spread": 0.1428571428571429
+   },
+   {
+    "family": "bar_chart",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "true": {
+      "n": 34,
+      "acc": 0.6176470588235294
+     }
+    },
+    "spread": 0.11764705882352944
+   },
+   {
+    "family": "bar_chart",
+    "knob": "value_labels",
+    "values": {
+     "false": {
+      "n": 25,
+      "acc": 0.64
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     }
+    },
+    "spread": 0.10666666666666669
+   },
+   {
+    "family": "bar_chart",
+    "knob": "horizontal",
+    "values": {
+     "false": {
+      "n": 34,
+      "acc": 0.5882352941176471
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     }
+    },
+    "spread": 0.07843137254901955
+   },
+   {
+    "family": "table",
+    "knob": "rules",
+    "values": {
+     "false": {
+      "n": 6,
+      "acc": 0.3333333333333333
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.4
+     }
+    },
+    "spread": 0.06666666666666671
+   },
+   {
+    "family": "table",
+    "knob": "zebra",
+    "values": {
+     "false": {
+      "n": 6,
+      "acc": 0.3333333333333333
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.4
+     }
+    },
+    "spread": 0.06666666666666671
+   },
+   {
+    "family": "clock",
+    "knob": "minute_ticks",
+    "values": {
+     "false": {
+      "n": 36,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "numerals",
+    "values": {
+     "\"all\"": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "\"none\"": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "\"quarters\"": {
+      "n": 12,
+      "acc": 0.0
+     },
+     "\"roman\"": {
+      "n": 18,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "second_hand",
+    "values": {
+     "false": {
+      "n": 36,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "similar_hands",
+    "values": {
+     "false": {
+      "n": 36,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "shapes",
+    "knob": "background",
+    "values": {
+     "\"noise\"": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "\"plain\"": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "shapes",
+    "knob": "n_objects",
+    "values": {
+     "11": {
+      "n": 4,
+      "acc": 0.0
+     },
+     "12": {
+      "n": 2,
+      "acc": 0.0
+     },
+     "8": {
+      "n": 4,
+      "acc": 0.0
+     },
+     "9": {
+      "n": 2,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   }
+  ],
+  "smolvlm2-2.2b": [
+   {
+    "family": "pie_chart",
+    "knob": "labels",
+    "values": {
+     "\"legend\"": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "\"name\"": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "\"pct\"": {
+      "n": 6,
+      "acc": 0.8333333333333334
+     }
+    },
+    "spread": 0.8333333333333334
+   },
+   {
+    "family": "receipt",
+    "knob": "items",
+    "values": {
+     "5": {
+      "n": 6,
+      "acc": 0.3333333333333333
+     },
+     "6": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "7": {
+      "n": 24,
+      "acc": 0.4583333333333333
+     }
+    },
+    "spread": 0.6666666666666667
+   },
+   {
+    "family": "bar_chart",
+    "knob": "n_bars",
+    "values": {
+     "6": {
+      "n": 14,
+      "acc": 0.5
+     },
+     "7": {
+      "n": 20,
+      "acc": 0.55
+     },
+     "8": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.55
+   },
+   {
+    "family": "bar_chart",
+    "knob": "label_rotation",
+    "values": {
+     "0": {
+      "n": 12,
+      "acc": 0.25
+     },
+     "30": {
+      "n": 16,
+      "acc": 0.6875
+     },
+     "45": {
+      "n": 6,
+      "acc": 0.3333333333333333
+     },
+     "90": {
+      "n": 6,
+      "acc": 0.3333333333333333
+     }
+    },
+    "spread": 0.4375
+   },
+   {
+    "family": "pie_chart",
+    "knob": "n_slices",
+    "values": {
+     "4": {
+      "n": 9,
+      "acc": 0.4444444444444444
+     },
+     "5": {
+      "n": 6,
+      "acc": 0.3333333333333333
+     },
+     "6": {
+      "n": 3,
+      "acc": 0.6666666666666666
+     }
+    },
+    "spread": 0.3333333333333333
+   },
+   {
+    "family": "pie_chart",
+    "knob": "start_angle",
+    "values": {
+     "0": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     },
+     "135": {
+      "n": 6,
+      "acc": 0.3333333333333333
+     },
+     "45": {
+      "n": 6,
+      "acc": 0.3333333333333333
+     }
+    },
+    "spread": 0.3333333333333333
+   },
+   {
+    "family": "table",
+    "knob": "rows",
+    "values": {
+     "6": {
+      "n": 18,
+      "acc": 0.2777777777777778
+     },
+     "8": {
+      "n": 18,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.2777777777777778
+   },
+   {
+    "family": "table",
+    "knob": "font_px",
+    "values": {
+     "10": {
+      "n": 6,
+      "acc": 0.16666666666666666
+     },
+     "12": {
+      "n": 6,
+      "acc": 0.16666666666666666
+     },
+     "15": {
+      "n": 18,
+      "acc": 0.16666666666666666
+     },
+     "20": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.16666666666666666
+   },
+   {
+    "family": "shapes",
+    "knob": "background",
+    "values": {
+     "\"noise\"": {
+      "n": 6,
+      "acc": 0.16666666666666666
+     },
+     "\"plain\"": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.16666666666666666
+   },
+   {
+    "family": "receipt",
+    "knob": "blur",
+    "values": {
+     "0.0": {
+      "n": 24,
+      "acc": 0.5
+     },
+     "0.8": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "1.5": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     }
+    },
+    "spread": 0.16666666666666663
+   },
+   {
+    "family": "bar_chart",
+    "knob": "value_labels",
+    "values": {
+     "false": {
+      "n": 25,
+      "acc": 0.4
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     }
+    },
+    "spread": 0.1333333333333333
+   },
+   {
+    "family": "bar_chart",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "true": {
+      "n": 34,
+      "acc": 0.4411764705882353
+     }
+    },
+    "spread": 0.05882352941176472
+   },
+   {
+    "family": "bar_chart",
+    "knob": "horizontal",
+    "values": {
+     "false": {
+      "n": 34,
+      "acc": 0.4411764705882353
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.5
+     }
+    },
+    "spread": 0.05882352941176472
+   },
+   {
+    "family": "receipt",
+    "knob": "skew_deg",
+    "values": {
+     "-3.0": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "0.0": {
+      "n": 24,
+      "acc": 0.5416666666666666
+     },
+     "3.0": {
+      "n": 6,
+      "acc": 0.5
+     }
+    },
+    "spread": 0.04166666666666663
+   },
+   {
+    "family": "table",
+    "knob": "rules",
+    "values": {
+     "false": {
+      "n": 6,
+      "acc": 0.16666666666666666
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.13333333333333333
+     }
+    },
+    "spread": 0.033333333333333326
+   },
+   {
+    "family": "table",
+    "knob": "zebra",
+    "values": {
+     "false": {
+      "n": 6,
+      "acc": 0.16666666666666666
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.13333333333333333
+     }
+    },
+    "spread": 0.033333333333333326
+   },
+   {
+    "family": "receipt",
+    "knob": "ink",
+    "values": {
+     "\"dark\"": {
+      "n": 30,
+      "acc": 0.5333333333333333
+     },
+     "\"faded\"": {
+      "n": 6,
+      "acc": 0.5
+     }
+    },
+    "spread": 0.033333333333333326
+   },
+   {
+    "family": "clock",
+    "knob": "minute_ticks",
+    "values": {
+     "false": {
+      "n": 36,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "numerals",
+    "values": {
+     "\"all\"": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "\"none\"": {
+      "n": 6,
+      "acc": 0.0
+     },
+     "\"quarters\"": {
+      "n": 12,
+      "acc": 0.0
+     },
+     "\"roman\"": {
+      "n": 18,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "second_hand",
+    "values": {
+     "false": {
+      "n": 36,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "similar_hands",
+    "values": {
+     "false": {
+      "n": 36,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "shapes",
+    "knob": "n_objects",
+    "values": {
+     "11": {
+      "n": 4,
+      "acc": 0.0
+     },
+     "12": {
+      "n": 2,
+      "acc": 0.0
+     },
+     "8": {
+      "n": 4,
+      "acc": 0.0
+     },
+     "9": {
+      "n": 2,
+      "acc": 0.5
+     }
+    },
+    "spread": 0.0
+   }
+  ]
+ },
+ "generation": {
+  "items": 184,
+  "bases_per_family": 6,
+  "dropped_bases": 4,
+  "families": [
+   "bar_chart",
+   "pie_chart",
+   "clock",
+   "table",
+   "receipt",
+   "shapes"
+  ],
+  "master_seed": 99
+ },
+ "validation": {
+  "items_checked": 184,
+  "rederive_agree": 184,
+  "identical_images": 184,
+  "probe_pass": 184,
+  "grader_accepts_truth": 184,
+  "grader_rejects_corrupt": 184,
+  "problems": []
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "items": 184,
+ "bases_per_family": 6,
+ "dropped_bases": 4,
+ "families": [
+  "bar_chart",
+  "pie_chart",
+  "clock",
+  "table",
+  "receipt",
+  "shapes"
+ ],
+ "master_seed": 99
+}

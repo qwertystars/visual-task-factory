@@ -1,0 +1,10 @@
+{
+ "items_checked": 360,
+ "identical_spec": 360,
+ "identical_images": 360,
+ "rederive_agree": 360,
+ "probe_pass": 360,
+ "grader_accepts_truth": 360,
+ "grader_rejects_corrupt": 360,
+ "problems": []
+}

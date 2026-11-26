@@ -1,0 +1,109 @@
+{
+  "master_seed": 7,
+  "items": 360,
+  "families": [
+    "bar_chart",
+    "clock",
+    "grid_path",
+    "line_chart",
+    "pie_chart",
+    "receipt",
+    "shapes",
+    "table"
+  ],
+  "per_cell": 15,
+  "attempts_total": 418,
+  "probe_reject": {
+    "bar_chart": 5,
+    "pie_chart": 2,
+    "shapes": 1
+  },
+  "ambiguity_reject": {
+    "bar_chart": 8,
+    "clock": 6,
+    "grid_path": 7,
+    "line_chart": 9,
+    "pie_chart": 8,
+    "receipt": 1,
+    "shapes": 5,
+    "table": 6
+  },
+  "top_reject_reasons": [
+    [
+      "bar_chart: probe: tick labels overlap",
+      5
+    ],
+    [
+      "line_chart: near tie peak",
+      5
+    ],
+    [
+      "pie_chart: near tie smallest",
+      5
+    ],
+    [
+      "shapes: largest shape not clearly largest",
+      5
+    ],
+    [
+      "table: column too long to sum fairly",
+      5
+    ],
+    [
+      "bar_chart: bottom two bars within 3px",
+      4
+    ],
+    [
+      "clock: second hand covers another hand",
+      4
+    ],
+    [
+      "grid_path: goal unreachable for a path-length question",
+      4
+    ],
+    [
+      "bar_chart: top-3 ordering within 3px",
+      3
+    ],
+    [
+      "grid_path: too many walls to count fairly",
+      3
+    ],
+    [
+      "line_chart: series too close at some x",
+      3
+    ],
+    [
+      "pie_chart: near tie largest",
+      3
+    ],
+    [
+      "clock: hour and minute hands overlap",
+      2
+    ],
+    [
+      "pie_chart: probe: wedges #,# colours too similar",
+      2
+    ],
+    [
+      "bar_chart: top two bars within 3px",
+      1
+    ],
+    [
+      "line_chart: near tie at x",
+      1
+    ],
+    [
+      "receipt: top two line totals within 1.00",
+      1
+    ],
+    [
+      "shapes: probe: object # only #% visible",
+      1
+    ],
+    [
+      "table: threshold equals a value",
+      1
+    ]
+  ]
+}

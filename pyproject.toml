@@ -1,0 +1,25 @@
+[project]
+name = "vtf"
+version = "0.1.0"
+description = "Synthetic visual questions with answers known by construction, and a bench that shows where vision models fail"
+authors = [
+    { name = "Srijan Guchhait", email = "62981066+qwertystars@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.5",
+    "pillow>=13.0.0",
+]
+
+[project.scripts]
+vtf = "vtf:main"
+
+[build-system]
+requires = ["uv_build>=0.13.10,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]

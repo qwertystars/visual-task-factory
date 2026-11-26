@@ -1,0 +1,9 @@
+{
+ "items_checked": 184,
+ "rederive_agree": 184,
+ "identical_images": 184,
+ "probe_pass": 184,
+ "grader_accepts_truth": 184,
+ "grader_rejects_corrupt": 184,
+ "problems": []
+}

@@ -1,0 +1,4835 @@
+{
+ "models": {
+  "oracle": {
+   "n": 360,
+   "acc": 1.0,
+   "by_family": {
+    "bar_chart": {
+     "n": 45,
+     "acc": 1.0
+    },
+    "clock": {
+     "n": 45,
+     "acc": 1.0
+    },
+    "grid_path": {
+     "n": 45,
+     "acc": 1.0
+    },
+    "line_chart": {
+     "n": 45,
+     "acc": 1.0
+    },
+    "pie_chart": {
+     "n": 45,
+     "acc": 1.0
+    },
+    "receipt": {
+     "n": 45,
+     "acc": 1.0
+    },
+    "shapes": {
+     "n": 45,
+     "acc": 1.0
+    },
+    "table": {
+     "n": 45,
+     "acc": 1.0
+    }
+   },
+   "by_difficulty": {
+    "easy": {
+     "n": 120,
+     "acc": 1.0
+    },
+    "hard": {
+     "n": 120,
+     "acc": 1.0
+    },
+    "medium": {
+     "n": 120,
+     "acc": 1.0
+    }
+   },
+   "by_qtype": {
+    "bar_chart/count_above": {
+     "n": 9,
+     "acc": 1.0
+    },
+    "bar_chart/diff": {
+     "n": 8,
+     "acc": 1.0
+    },
+    "bar_chart/shortest": {
+     "n": 7,
+     "acc": 1.0
+    },
+    "bar_chart/tallest": {
+     "n": 7,
+     "acc": 1.0
+    },
+    "bar_chart/top3": {
+     "n": 4,
+     "acc": 1.0
+    },
+    "bar_chart/value_of": {
+     "n": 10,
+     "acc": 1.0
+    },
+    "clock/minutes_to_hour": {
+     "n": 9,
+     "acc": 1.0
+    },
+    "clock/time": {
+     "n": 36,
+     "acc": 1.0
+    },
+    "grid_path/path_len": {
+     "n": 24,
+     "acc": 1.0
+    },
+    "grid_path/reachable": {
+     "n": 8,
+     "acc": 1.0
+    },
+    "grid_path/walls": {
+     "n": 13,
+     "acc": 1.0
+    },
+    "line_chart/crossings": {
+     "n": 7,
+     "acc": 1.0
+    },
+    "line_chart/highest_at": {
+     "n": 13,
+     "acc": 1.0
+    },
+    "line_chart/peak_month": {
+     "n": 9,
+     "acc": 1.0
+    },
+    "line_chart/value_at": {
+     "n": 16,
+     "acc": 1.0
+    },
+    "pie_chart/largest": {
+     "n": 17,
+     "acc": 1.0
+    },
+    "pie_chart/share_of": {
+     "n": 19,
+     "acc": 1.0
+    },
+    "pie_chart/smallest": {
+     "n": 9,
+     "acc": 1.0
+    },
+    "receipt/line_total": {
+     "n": 17,
+     "acc": 1.0
+    },
+    "receipt/priciest": {
+     "n": 8,
+     "acc": 1.0
+    },
+    "receipt/total": {
+     "n": 11,
+     "acc": 1.0
+    },
+    "receipt/units": {
+     "n": 9,
+     "acc": 1.0
+    },
+    "shapes/count_color": {
+     "n": 3,
+     "acc": 1.0
+    },
+    "shapes/count_combo": {
+     "n": 11,
+     "acc": 1.0
+    },
+    "shapes/count_kind": {
+     "n": 9,
+     "acc": 1.0
+    },
+    "shapes/largest_color": {
+     "n": 3,
+     "acc": 1.0
+    },
+    "shapes/leftmost_kind": {
+     "n": 13,
+     "acc": 1.0
+    },
+    "shapes/total": {
+     "n": 6,
+     "acc": 1.0
+    },
+    "table/col_sum": {
+     "n": 10,
+     "acc": 1.0
+    },
+    "table/count_gt": {
+     "n": 12,
+     "acc": 1.0
+    },
+    "table/lookup": {
+     "n": 13,
+     "acc": 1.0
+    },
+    "table/row_max": {
+     "n": 10,
+     "acc": 1.0
+    }
+   },
+   "cells": {
+    "bar_chart|easy": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "bar_chart|hard": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "bar_chart|medium": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "clock|easy": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "clock|hard": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "clock|medium": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "grid_path|easy": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "grid_path|hard": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "grid_path|medium": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "line_chart|easy": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "line_chart|hard": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "line_chart|medium": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "pie_chart|easy": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "pie_chart|hard": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "pie_chart|medium": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "receipt|easy": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "receipt|hard": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "receipt|medium": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "shapes|easy": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "shapes|hard": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "shapes|medium": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "table|easy": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "table|hard": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "table|medium": {
+     "n": 15,
+     "acc": 1.0
+    }
+   },
+   "modes": {
+    "correct": 360
+   },
+   "median_latency_s": 0.0
+  },
+  "random": {
+   "n": 360,
+   "acc": 0.09722222222222222,
+   "by_family": {
+    "bar_chart": {
+     "n": 45,
+     "acc": 0.08888888888888889
+    },
+    "clock": {
+     "n": 45,
+     "acc": 0.0
+    },
+    "grid_path": {
+     "n": 45,
+     "acc": 0.13333333333333333
+    },
+    "line_chart": {
+     "n": 45,
+     "acc": 0.17777777777777778
+    },
+    "pie_chart": {
+     "n": 45,
+     "acc": 0.26666666666666666
+    },
+    "receipt": {
+     "n": 45,
+     "acc": 0.022222222222222223
+    },
+    "shapes": {
+     "n": 45,
+     "acc": 0.022222222222222223
+    },
+    "table": {
+     "n": 45,
+     "acc": 0.06666666666666667
+    }
+   },
+   "by_difficulty": {
+    "easy": {
+     "n": 120,
+     "acc": 0.10833333333333334
+    },
+    "hard": {
+     "n": 120,
+     "acc": 0.08333333333333333
+    },
+    "medium": {
+     "n": 120,
+     "acc": 0.1
+    }
+   },
+   "by_qtype": {
+    "bar_chart/count_above": {
+     "n": 9,
+     "acc": 0.0
+    },
+    "bar_chart/diff": {
+     "n": 8,
+     "acc": 0.125
+    },
+    "bar_chart/shortest": {
+     "n": 7,
+     "acc": 0.14285714285714285
+    },
+    "bar_chart/tallest": {
+     "n": 7,
+     "acc": 0.2857142857142857
+    },
+    "bar_chart/top3": {
+     "n": 4,
+     "acc": 0.0
+    },
+    "bar_chart/value_of": {
+     "n": 10,
+     "acc": 0.0
+    },
+    "clock/minutes_to_hour": {
+     "n": 9,
+     "acc": 0.0
+    },
+    "clock/time": {
+     "n": 36,
+     "acc": 0.0
+    },
+    "grid_path/path_len": {
+     "n": 24,
+     "acc": 0.125
+    },
+    "grid_path/reachable": {
+     "n": 8,
+     "acc": 0.25
+    },
+    "grid_path/walls": {
+     "n": 13,
+     "acc": 0.07692307692307693
+    },
+    "line_chart/crossings": {
+     "n": 7,
+     "acc": 0.0
+    },
+    "line_chart/highest_at": {
+     "n": 13,
+     "acc": 0.3076923076923077
+    },
+    "line_chart/peak_month": {
+     "n": 9,
+     "acc": 0.1111111111111111
+    },
+    "line_chart/value_at": {
+     "n": 16,
+     "acc": 0.1875
+    },
+    "pie_chart/largest": {
+     "n": 17,
+     "acc": 0.4117647058823529
+    },
+    "pie_chart/share_of": {
+     "n": 19,
+     "acc": 0.2631578947368421
+    },
+    "pie_chart/smallest": {
+     "n": 9,
+     "acc": 0.0
+    },
+    "receipt/line_total": {
+     "n": 17,
+     "acc": 0.0
+    },
+    "receipt/priciest": {
+     "n": 8,
+     "acc": 0.125
+    },
+    "receipt/total": {
+     "n": 11,
+     "acc": 0.0
+    },
+    "receipt/units": {
+     "n": 9,
+     "acc": 0.0
+    },
+    "shapes/count_color": {
+     "n": 3,
+     "acc": 0.0
+    },
+    "shapes/count_combo": {
+     "n": 11,
+     "acc": 0.0
+    },
+    "shapes/count_kind": {
+     "n": 9,
+     "acc": 0.1111111111111111
+    },
+    "shapes/largest_color": {
+     "n": 3,
+     "acc": 0.0
+    },
+    "shapes/leftmost_kind": {
+     "n": 13,
+     "acc": 0.0
+    },
+    "shapes/total": {
+     "n": 6,
+     "acc": 0.0
+    },
+    "table/col_sum": {
+     "n": 10,
+     "acc": 0.0
+    },
+    "table/count_gt": {
+     "n": 12,
+     "acc": 0.08333333333333333
+    },
+    "table/lookup": {
+     "n": 13,
+     "acc": 0.07692307692307693
+    },
+    "table/row_max": {
+     "n": 10,
+     "acc": 0.1
+    }
+   },
+   "cells": {
+    "bar_chart|easy": {
+     "n": 15,
+     "acc": 0.2
+    },
+    "bar_chart|hard": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "bar_chart|medium": {
+     "n": 15,
+     "acc": 0.06666666666666667
+    },
+    "clock|easy": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "clock|hard": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "clock|medium": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "grid_path|easy": {
+     "n": 15,
+     "acc": 0.06666666666666667
+    },
+    "grid_path|hard": {
+     "n": 15,
+     "acc": 0.3333333333333333
+    },
+    "grid_path|medium": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "line_chart|easy": {
+     "n": 15,
+     "acc": 0.2
+    },
+    "line_chart|hard": {
+     "n": 15,
+     "acc": 0.06666666666666667
+    },
+    "line_chart|medium": {
+     "n": 15,
+     "acc": 0.26666666666666666
+    },
+    "pie_chart|easy": {
+     "n": 15,
+     "acc": 0.2
+    },
+    "pie_chart|hard": {
+     "n": 15,
+     "acc": 0.2
+    },
+    "pie_chart|medium": {
+     "n": 15,
+     "acc": 0.4
+    },
+    "receipt|easy": {
+     "n": 15,
+     "acc": 0.06666666666666667
+    },
+    "receipt|hard": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "receipt|medium": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "shapes|easy": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "shapes|hard": {
+     "n": 15,
+     "acc": 0.06666666666666667
+    },
+    "shapes|medium": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "table|easy": {
+     "n": 15,
+     "acc": 0.13333333333333333
+    },
+    "table|hard": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "table|medium": {
+     "n": 15,
+     "acc": 0.06666666666666667
+    }
+   },
+   "modes": {
+    "near_miss": 32,
+    "wrong": 293,
+    "correct": 35
+   },
+   "median_latency_s": 0.0
+  },
+  "qwen2.5-vl-3b": {
+   "n": 360,
+   "acc": 0.6111111111111112,
+   "by_family": {
+    "bar_chart": {
+     "n": 45,
+     "acc": 0.7777777777777778
+    },
+    "clock": {
+     "n": 45,
+     "acc": 0.06666666666666667
+    },
+    "grid_path": {
+     "n": 45,
+     "acc": 0.26666666666666666
+    },
+    "line_chart": {
+     "n": 45,
+     "acc": 0.9111111111111111
+    },
+    "pie_chart": {
+     "n": 45,
+     "acc": 0.8666666666666667
+    },
+    "receipt": {
+     "n": 45,
+     "acc": 0.8444444444444444
+    },
+    "shapes": {
+     "n": 45,
+     "acc": 0.6444444444444445
+    },
+    "table": {
+     "n": 45,
+     "acc": 0.5111111111111111
+    }
+   },
+   "by_difficulty": {
+    "easy": {
+     "n": 120,
+     "acc": 0.7083333333333334
+    },
+    "hard": {
+     "n": 120,
+     "acc": 0.55
+    },
+    "medium": {
+     "n": 120,
+     "acc": 0.575
+    }
+   },
+   "by_qtype": {
+    "bar_chart/count_above": {
+     "n": 9,
+     "acc": 0.5555555555555556
+    },
+    "bar_chart/diff": {
+     "n": 8,
+     "acc": 1.0
+    },
+    "bar_chart/shortest": {
+     "n": 7,
+     "acc": 1.0
+    },
+    "bar_chart/tallest": {
+     "n": 7,
+     "acc": 0.7142857142857143
+    },
+    "bar_chart/top3": {
+     "n": 4,
+     "acc": 0.5
+    },
+    "bar_chart/value_of": {
+     "n": 10,
+     "acc": 0.8
+    },
+    "clock/minutes_to_hour": {
+     "n": 9,
+     "acc": 0.2222222222222222
+    },
+    "clock/time": {
+     "n": 36,
+     "acc": 0.027777777777777776
+    },
+    "grid_path/path_len": {
+     "n": 24,
+     "acc": 0.125
+    },
+    "grid_path/reachable": {
+     "n": 8,
+     "acc": 0.875
+    },
+    "grid_path/walls": {
+     "n": 13,
+     "acc": 0.15384615384615385
+    },
+    "line_chart/crossings": {
+     "n": 7,
+     "acc": 0.5714285714285714
+    },
+    "line_chart/highest_at": {
+     "n": 13,
+     "acc": 1.0
+    },
+    "line_chart/peak_month": {
+     "n": 9,
+     "acc": 1.0
+    },
+    "line_chart/value_at": {
+     "n": 16,
+     "acc": 0.9375
+    },
+    "pie_chart/largest": {
+     "n": 17,
+     "acc": 0.8235294117647058
+    },
+    "pie_chart/share_of": {
+     "n": 19,
+     "acc": 0.8947368421052632
+    },
+    "pie_chart/smallest": {
+     "n": 9,
+     "acc": 0.8888888888888888
+    },
+    "receipt/line_total": {
+     "n": 17,
+     "acc": 1.0
+    },
+    "receipt/priciest": {
+     "n": 8,
+     "acc": 0.625
+    },
+    "receipt/total": {
+     "n": 11,
+     "acc": 1.0
+    },
+    "receipt/units": {
+     "n": 9,
+     "acc": 0.5555555555555556
+    },
+    "shapes/count_color": {
+     "n": 3,
+     "acc": 1.0
+    },
+    "shapes/count_combo": {
+     "n": 11,
+     "acc": 0.9090909090909091
+    },
+    "shapes/count_kind": {
+     "n": 9,
+     "acc": 0.1111111111111111
+    },
+    "shapes/largest_color": {
+     "n": 3,
+     "acc": 1.0
+    },
+    "shapes/leftmost_kind": {
+     "n": 13,
+     "acc": 0.6153846153846154
+    },
+    "shapes/total": {
+     "n": 6,
+     "acc": 0.6666666666666666
+    },
+    "table/col_sum": {
+     "n": 10,
+     "acc": 0.2
+    },
+    "table/count_gt": {
+     "n": 12,
+     "acc": 0.16666666666666666
+    },
+    "table/lookup": {
+     "n": 13,
+     "acc": 1.0
+    },
+    "table/row_max": {
+     "n": 10,
+     "acc": 0.6
+    }
+   },
+   "cells": {
+    "bar_chart|easy": {
+     "n": 15,
+     "acc": 0.9333333333333333
+    },
+    "bar_chart|hard": {
+     "n": 15,
+     "acc": 0.5333333333333333
+    },
+    "bar_chart|medium": {
+     "n": 15,
+     "acc": 0.8666666666666667
+    },
+    "clock|easy": {
+     "n": 15,
+     "acc": 0.2
+    },
+    "clock|hard": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "clock|medium": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "grid_path|easy": {
+     "n": 15,
+     "acc": 0.3333333333333333
+    },
+    "grid_path|hard": {
+     "n": 15,
+     "acc": 0.4
+    },
+    "grid_path|medium": {
+     "n": 15,
+     "acc": 0.06666666666666667
+    },
+    "line_chart|easy": {
+     "n": 15,
+     "acc": 0.8666666666666667
+    },
+    "line_chart|hard": {
+     "n": 15,
+     "acc": 0.8666666666666667
+    },
+    "line_chart|medium": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "pie_chart|easy": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "pie_chart|hard": {
+     "n": 15,
+     "acc": 0.6
+    },
+    "pie_chart|medium": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "receipt|easy": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "receipt|hard": {
+     "n": 15,
+     "acc": 0.8666666666666667
+    },
+    "receipt|medium": {
+     "n": 15,
+     "acc": 0.6666666666666666
+    },
+    "shapes|easy": {
+     "n": 15,
+     "acc": 0.6666666666666666
+    },
+    "shapes|hard": {
+     "n": 15,
+     "acc": 0.6
+    },
+    "shapes|medium": {
+     "n": 15,
+     "acc": 0.6666666666666666
+    },
+    "table|easy": {
+     "n": 15,
+     "acc": 0.6666666666666666
+    },
+    "table|hard": {
+     "n": 15,
+     "acc": 0.5333333333333333
+    },
+    "table|medium": {
+     "n": 15,
+     "acc": 0.3333333333333333
+    }
+   },
+   "modes": {
+    "correct": 220,
+    "near_miss": 41,
+    "wrong": 99
+   },
+   "median_latency_s": 8.97
+  },
+  "gemma3-4b": {
+   "n": 360,
+   "acc": 0.4722222222222222,
+   "by_family": {
+    "bar_chart": {
+     "n": 45,
+     "acc": 0.6222222222222222
+    },
+    "clock": {
+     "n": 45,
+     "acc": 0.0
+    },
+    "grid_path": {
+     "n": 45,
+     "acc": 0.2222222222222222
+    },
+    "line_chart": {
+     "n": 45,
+     "acc": 0.4888888888888889
+    },
+    "pie_chart": {
+     "n": 45,
+     "acc": 0.6444444444444445
+    },
+    "receipt": {
+     "n": 45,
+     "acc": 0.8
+    },
+    "shapes": {
+     "n": 45,
+     "acc": 0.4888888888888889
+    },
+    "table": {
+     "n": 45,
+     "acc": 0.5111111111111111
+    }
+   },
+   "by_difficulty": {
+    "easy": {
+     "n": 120,
+     "acc": 0.5666666666666667
+    },
+    "hard": {
+     "n": 120,
+     "acc": 0.4083333333333333
+    },
+    "medium": {
+     "n": 120,
+     "acc": 0.44166666666666665
+    }
+   },
+   "by_qtype": {
+    "bar_chart/count_above": {
+     "n": 9,
+     "acc": 0.6666666666666666
+    },
+    "bar_chart/diff": {
+     "n": 8,
+     "acc": 0.25
+    },
+    "bar_chart/shortest": {
+     "n": 7,
+     "acc": 0.8571428571428571
+    },
+    "bar_chart/tallest": {
+     "n": 7,
+     "acc": 0.7142857142857143
+    },
+    "bar_chart/top3": {
+     "n": 4,
+     "acc": 0.0
+    },
+    "bar_chart/value_of": {
+     "n": 10,
+     "acc": 0.9
+    },
+    "clock/minutes_to_hour": {
+     "n": 9,
+     "acc": 0.0
+    },
+    "clock/time": {
+     "n": 36,
+     "acc": 0.0
+    },
+    "grid_path/path_len": {
+     "n": 24,
+     "acc": 0.125
+    },
+    "grid_path/reachable": {
+     "n": 8,
+     "acc": 0.625
+    },
+    "grid_path/walls": {
+     "n": 13,
+     "acc": 0.15384615384615385
+    },
+    "line_chart/crossings": {
+     "n": 7,
+     "acc": 0.0
+    },
+    "line_chart/highest_at": {
+     "n": 13,
+     "acc": 0.8461538461538461
+    },
+    "line_chart/peak_month": {
+     "n": 9,
+     "acc": 0.2222222222222222
+    },
+    "line_chart/value_at": {
+     "n": 16,
+     "acc": 0.5625
+    },
+    "pie_chart/largest": {
+     "n": 17,
+     "acc": 0.7058823529411765
+    },
+    "pie_chart/share_of": {
+     "n": 19,
+     "acc": 0.5263157894736842
+    },
+    "pie_chart/smallest": {
+     "n": 9,
+     "acc": 0.7777777777777778
+    },
+    "receipt/line_total": {
+     "n": 17,
+     "acc": 0.8823529411764706
+    },
+    "receipt/priciest": {
+     "n": 8,
+     "acc": 0.75
+    },
+    "receipt/total": {
+     "n": 11,
+     "acc": 1.0
+    },
+    "receipt/units": {
+     "n": 9,
+     "acc": 0.4444444444444444
+    },
+    "shapes/count_color": {
+     "n": 3,
+     "acc": 0.3333333333333333
+    },
+    "shapes/count_combo": {
+     "n": 11,
+     "acc": 0.7272727272727273
+    },
+    "shapes/count_kind": {
+     "n": 9,
+     "acc": 0.2222222222222222
+    },
+    "shapes/largest_color": {
+     "n": 3,
+     "acc": 0.3333333333333333
+    },
+    "shapes/leftmost_kind": {
+     "n": 13,
+     "acc": 0.6153846153846154
+    },
+    "shapes/total": {
+     "n": 6,
+     "acc": 0.3333333333333333
+    },
+    "table/col_sum": {
+     "n": 10,
+     "acc": 0.0
+    },
+    "table/count_gt": {
+     "n": 12,
+     "acc": 0.16666666666666666
+    },
+    "table/lookup": {
+     "n": 13,
+     "acc": 1.0
+    },
+    "table/row_max": {
+     "n": 10,
+     "acc": 0.8
+    }
+   },
+   "cells": {
+    "bar_chart|easy": {
+     "n": 15,
+     "acc": 0.6666666666666666
+    },
+    "bar_chart|hard": {
+     "n": 15,
+     "acc": 0.5333333333333333
+    },
+    "bar_chart|medium": {
+     "n": 15,
+     "acc": 0.6666666666666666
+    },
+    "clock|easy": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "clock|hard": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "clock|medium": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "grid_path|easy": {
+     "n": 15,
+     "acc": 0.2
+    },
+    "grid_path|hard": {
+     "n": 15,
+     "acc": 0.4
+    },
+    "grid_path|medium": {
+     "n": 15,
+     "acc": 0.06666666666666667
+    },
+    "line_chart|easy": {
+     "n": 15,
+     "acc": 0.5333333333333333
+    },
+    "line_chart|hard": {
+     "n": 15,
+     "acc": 0.4
+    },
+    "line_chart|medium": {
+     "n": 15,
+     "acc": 0.5333333333333333
+    },
+    "pie_chart|easy": {
+     "n": 15,
+     "acc": 1.0
+    },
+    "pie_chart|hard": {
+     "n": 15,
+     "acc": 0.3333333333333333
+    },
+    "pie_chart|medium": {
+     "n": 15,
+     "acc": 0.6
+    },
+    "receipt|easy": {
+     "n": 15,
+     "acc": 0.9333333333333333
+    },
+    "receipt|hard": {
+     "n": 15,
+     "acc": 0.7333333333333333
+    },
+    "receipt|medium": {
+     "n": 15,
+     "acc": 0.7333333333333333
+    },
+    "shapes|easy": {
+     "n": 15,
+     "acc": 0.7333333333333333
+    },
+    "shapes|hard": {
+     "n": 15,
+     "acc": 0.2
+    },
+    "shapes|medium": {
+     "n": 15,
+     "acc": 0.5333333333333333
+    },
+    "table|easy": {
+     "n": 15,
+     "acc": 0.4666666666666667
+    },
+    "table|hard": {
+     "n": 15,
+     "acc": 0.6666666666666666
+    },
+    "table|medium": {
+     "n": 15,
+     "acc": 0.4
+    }
+   },
+   "modes": {
+    "correct": 170,
+    "wrong": 151,
+    "near_miss": 38,
+    "unparseable": 1
+   },
+   "median_latency_s": 18.49
+  },
+  "smolvlm2-2.2b": {
+   "n": 360,
+   "acc": 0.44722222222222224,
+   "by_family": {
+    "bar_chart": {
+     "n": 45,
+     "acc": 0.5555555555555556
+    },
+    "clock": {
+     "n": 45,
+     "acc": 0.06666666666666667
+    },
+    "grid_path": {
+     "n": 45,
+     "acc": 0.37777777777777777
+    },
+    "line_chart": {
+     "n": 45,
+     "acc": 0.4666666666666667
+    },
+    "pie_chart": {
+     "n": 45,
+     "acc": 0.6222222222222222
+    },
+    "receipt": {
+     "n": 45,
+     "acc": 0.6
+    },
+    "shapes": {
+     "n": 45,
+     "acc": 0.5555555555555556
+    },
+    "table": {
+     "n": 45,
+     "acc": 0.3333333333333333
+    }
+   },
+   "by_difficulty": {
+    "easy": {
+     "n": 120,
+     "acc": 0.5833333333333334
+    },
+    "hard": {
+     "n": 120,
+     "acc": 0.325
+    },
+    "medium": {
+     "n": 120,
+     "acc": 0.43333333333333335
+    }
+   },
+   "by_qtype": {
+    "bar_chart/count_above": {
+     "n": 9,
+     "acc": 0.6666666666666666
+    },
+    "bar_chart/diff": {
+     "n": 8,
+     "acc": 0.125
+    },
+    "bar_chart/shortest": {
+     "n": 7,
+     "acc": 0.7142857142857143
+    },
+    "bar_chart/tallest": {
+     "n": 7,
+     "acc": 0.8571428571428571
+    },
+    "bar_chart/top3": {
+     "n": 4,
+     "acc": 0.0
+    },
+    "bar_chart/value_of": {
+     "n": 10,
+     "acc": 0.7
+    },
+    "clock/minutes_to_hour": {
+     "n": 9,
+     "acc": 0.0
+    },
+    "clock/time": {
+     "n": 36,
+     "acc": 0.08333333333333333
+    },
+    "grid_path/path_len": {
+     "n": 24,
+     "acc": 0.16666666666666666
+    },
+    "grid_path/reachable": {
+     "n": 8,
+     "acc": 0.875
+    },
+    "grid_path/walls": {
+     "n": 13,
+     "acc": 0.46153846153846156
+    },
+    "line_chart/crossings": {
+     "n": 7,
+     "acc": 0.0
+    },
+    "line_chart/highest_at": {
+     "n": 13,
+     "acc": 0.8461538461538461
+    },
+    "line_chart/peak_month": {
+     "n": 9,
+     "acc": 0.4444444444444444
+    },
+    "line_chart/value_at": {
+     "n": 16,
+     "acc": 0.375
+    },
+    "pie_chart/largest": {
+     "n": 17,
+     "acc": 0.7058823529411765
+    },
+    "pie_chart/share_of": {
+     "n": 19,
+     "acc": 0.5263157894736842
+    },
+    "pie_chart/smallest": {
+     "n": 9,
+     "acc": 0.6666666666666666
+    },
+    "receipt/line_total": {
+     "n": 17,
+     "acc": 0.8235294117647058
+    },
+    "receipt/priciest": {
+     "n": 8,
+     "acc": 0.25
+    },
+    "receipt/total": {
+     "n": 11,
+     "acc": 1.0
+    },
+    "receipt/units": {
+     "n": 9,
+     "acc": 0.0
+    },
+    "shapes/count_color": {
+     "n": 3,
+     "acc": 0.3333333333333333
+    },
+    "shapes/count_combo": {
+     "n": 11,
+     "acc": 0.8181818181818182
+    },
+    "shapes/count_kind": {
+     "n": 9,
+     "acc": 0.3333333333333333
+    },
+    "shapes/largest_color": {
+     "n": 3,
+     "acc": 0.6666666666666666
+    },
+    "shapes/leftmost_kind": {
+     "n": 13,
+     "acc": 0.6923076923076923
+    },
+    "shapes/total": {
+     "n": 6,
+     "acc": 0.16666666666666666
+    },
+    "table/col_sum": {
+     "n": 10,
+     "acc": 0.0
+    },
+    "table/count_gt": {
+     "n": 12,
+     "acc": 0.3333333333333333
+    },
+    "table/lookup": {
+     "n": 13,
+     "acc": 0.7692307692307693
+    },
+    "table/row_max": {
+     "n": 10,
+     "acc": 0.1
+    }
+   },
+   "cells": {
+    "bar_chart|easy": {
+     "n": 15,
+     "acc": 0.6666666666666666
+    },
+    "bar_chart|hard": {
+     "n": 15,
+     "acc": 0.4666666666666667
+    },
+    "bar_chart|medium": {
+     "n": 15,
+     "acc": 0.5333333333333333
+    },
+    "clock|easy": {
+     "n": 15,
+     "acc": 0.13333333333333333
+    },
+    "clock|hard": {
+     "n": 15,
+     "acc": 0.0
+    },
+    "clock|medium": {
+     "n": 15,
+     "acc": 0.06666666666666667
+    },
+    "grid_path|easy": {
+     "n": 15,
+     "acc": 0.6666666666666666
+    },
+    "grid_path|hard": {
+     "n": 15,
+     "acc": 0.26666666666666666
+    },
+    "grid_path|medium": {
+     "n": 15,
+     "acc": 0.2
+    },
+    "line_chart|easy": {
+     "n": 15,
+     "acc": 0.6
+    },
+    "line_chart|hard": {
+     "n": 15,
+     "acc": 0.26666666666666666
+    },
+    "line_chart|medium": {
+     "n": 15,
+     "acc": 0.5333333333333333
+    },
+    "pie_chart|easy": {
+     "n": 15,
+     "acc": 0.9333333333333333
+    },
+    "pie_chart|hard": {
+     "n": 15,
+     "acc": 0.2
+    },
+    "pie_chart|medium": {
+     "n": 15,
+     "acc": 0.7333333333333333
+    },
+    "receipt|easy": {
+     "n": 15,
+     "acc": 0.6
+    },
+    "receipt|hard": {
+     "n": 15,
+     "acc": 0.6
+    },
+    "receipt|medium": {
+     "n": 15,
+     "acc": 0.6
+    },
+    "shapes|easy": {
+     "n": 15,
+     "acc": 0.6
+    },
+    "shapes|hard": {
+     "n": 15,
+     "acc": 0.5333333333333333
+    },
+    "shapes|medium": {
+     "n": 15,
+     "acc": 0.5333333333333333
+    },
+    "table|easy": {
+     "n": 15,
+     "acc": 0.4666666666666667
+    },
+    "table|hard": {
+     "n": 15,
+     "acc": 0.26666666666666666
+    },
+    "table|medium": {
+     "n": 15,
+     "acc": 0.26666666666666666
+    }
+   },
+   "modes": {
+    "correct": 161,
+    "wrong": 162,
+    "near_miss": 35,
+    "unparseable": 2
+   },
+   "median_latency_s": 6.14
+  }
+ },
+ "knob_effects": {
+  "oracle": [
+   {
+    "family": "bar_chart",
+    "knob": "colors",
+    "values": {
+     "\"distinct\"": {
+      "n": 23,
+      "acc": 1.0
+     },
+     "\"shades\"": {
+      "n": 7,
+      "acc": 1.0
+     },
+     "\"single\"": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "bar_chart",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "bar_chart",
+    "knob": "horizontal",
+    "values": {
+     "false": {
+      "n": 37,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 8,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "bar_chart",
+    "knob": "label_rotation",
+    "values": {
+     "0": {
+      "n": 22,
+      "acc": 1.0
+     },
+     "30": {
+      "n": 8,
+      "acc": 1.0
+     },
+     "45": {
+      "n": 3,
+      "acc": 1.0
+     },
+     "60": {
+      "n": 5,
+      "acc": 1.0
+     },
+     "90": {
+      "n": 7,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "bar_chart",
+    "knob": "near_tie",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "bar_chart",
+    "knob": "size",
+    "values": {
+     "[5.6, 4.2]": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "[6.4, 4.8]": {
+      "n": 30,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "bar_chart",
+    "knob": "value_labels",
+    "values": {
+     "false": {
+      "n": 23,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 22,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "minute_ticks",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "numerals",
+    "values": {
+     "\"all\"": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "\"none\"": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "\"quarters\"": {
+      "n": 9,
+      "acc": 1.0
+     },
+     "\"roman\"": {
+      "n": 6,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "second_hand",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "similar_hands",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "size",
+    "values": {
+     "320": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "400": {
+      "n": 30,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "grid_path",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "grid_path",
+    "knob": "n",
+    "values": {
+     "10": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "5": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "7": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "grid_path",
+    "knob": "wall_density",
+    "values": {
+     "0.15": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "0.25": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "0.3": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "line_chart",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 21,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 24,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "line_chart",
+    "knob": "legend",
+    "values": {
+     "\"inside\"": {
+      "n": 30,
+      "acc": 1.0
+     },
+     "\"outside\"": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "line_chart",
+    "knob": "linestyles",
+    "values": {
+     "false": {
+      "n": 40,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 5,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "line_chart",
+    "knob": "markers",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "line_chart",
+    "knob": "n_points",
+    "values": {
+     "12": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "6": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "8": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "line_chart",
+    "knob": "n_series",
+    "values": {
+     "2": {
+      "n": 22,
+      "acc": 1.0
+     },
+     "3": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "4": {
+      "n": 8,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "pie_chart",
+    "knob": "colors",
+    "values": {
+     "\"distinct\"": {
+      "n": 35,
+      "acc": 1.0
+     },
+     "\"shades\"": {
+      "n": 10,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "pie_chart",
+    "knob": "labels",
+    "values": {
+     "\"legend\"": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "\"name\"": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "\"pct\"": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "pie_chart",
+    "knob": "n_slices",
+    "values": {
+     "3": {
+      "n": 9,
+      "acc": 1.0
+     },
+     "4": {
+      "n": 13,
+      "acc": 1.0
+     },
+     "5": {
+      "n": 4,
+      "acc": 1.0
+     },
+     "6": {
+      "n": 10,
+      "acc": 1.0
+     },
+     "7": {
+      "n": 8,
+      "acc": 1.0
+     },
+     "8": {
+      "n": 1,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "pie_chart",
+    "knob": "start_angle",
+    "values": {
+     "0": {
+      "n": 8,
+      "acc": 1.0
+     },
+     "135": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "45": {
+      "n": 7,
+      "acc": 1.0
+     },
+     "90": {
+      "n": 24,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "blur",
+    "values": {
+     "0.0": {
+      "n": 30,
+      "acc": 1.0
+     },
+     "0.8": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "discount",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "font_px",
+    "values": {
+     "14": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "16": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "18": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "ink",
+    "values": {
+     "\"dark\"": {
+      "n": 30,
+      "acc": 1.0
+     },
+     "\"faded\"": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "shapes",
+    "knob": "background",
+    "values": {
+     "\"noise\"": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "\"plain\"": {
+      "n": 30,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "shapes",
+    "knob": "kinds",
+    "values": {
+     "3": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "4": {
+      "n": 30,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "shapes",
+    "knob": "n_colors",
+    "values": {
+     "3": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "5": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "8": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "shapes",
+    "knob": "overlap",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "cols",
+    "values": {
+     "4": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "5": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "6": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "dense",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "font_px",
+    "values": {
+     "12": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "15": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "20": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "rules",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "zebra",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.0
+   }
+  ],
+  "random": [
+   {
+    "family": "pie_chart",
+    "knob": "start_angle",
+    "values": {
+     "0": {
+      "n": 8,
+      "acc": 0.125
+     },
+     "135": {
+      "n": 6,
+      "acc": 0.5
+     },
+     "45": {
+      "n": 7,
+      "acc": 0.2857142857142857
+     },
+     "90": {
+      "n": 24,
+      "acc": 0.25
+     }
+    },
+    "spread": 0.375
+   },
+   {
+    "family": "pie_chart",
+    "knob": "n_slices",
+    "values": {
+     "3": {
+      "n": 9,
+      "acc": 0.1111111111111111
+     },
+     "4": {
+      "n": 13,
+      "acc": 0.46153846153846156
+     },
+     "5": {
+      "n": 4,
+      "acc": 0.25
+     },
+     "6": {
+      "n": 10,
+      "acc": 0.2
+     },
+     "7": {
+      "n": 8,
+      "acc": 0.25
+     },
+     "8": {
+      "n": 1,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.35042735042735046
+   },
+   {
+    "family": "grid_path",
+    "knob": "n",
+    "values": {
+     "10": {
+      "n": 15,
+      "acc": 0.3333333333333333
+     },
+     "5": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     },
+     "7": {
+      "n": 15,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.3333333333333333
+   },
+   {
+    "family": "grid_path",
+    "knob": "wall_density",
+    "values": {
+     "0.15": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     },
+     "0.25": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "0.3": {
+      "n": 15,
+      "acc": 0.3333333333333333
+     }
+    },
+    "spread": 0.3333333333333333
+   },
+   {
+    "family": "grid_path",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.3333333333333333
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.03333333333333333
+     }
+    },
+    "spread": 0.3
+   },
+   {
+    "family": "line_chart",
+    "knob": "n_series",
+    "values": {
+     "2": {
+      "n": 22,
+      "acc": 0.2727272727272727
+     },
+     "3": {
+      "n": 15,
+      "acc": 0.13333333333333333
+     },
+     "4": {
+      "n": 8,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.2727272727272727
+   },
+   {
+    "family": "pie_chart",
+    "knob": "colors",
+    "values": {
+     "\"distinct\"": {
+      "n": 35,
+      "acc": 0.3142857142857143
+     },
+     "\"shades\"": {
+      "n": 10,
+      "acc": 0.1
+     }
+    },
+    "spread": 0.21428571428571427
+   },
+   {
+    "family": "bar_chart",
+    "knob": "colors",
+    "values": {
+     "\"distinct\"": {
+      "n": 23,
+      "acc": 0.043478260869565216
+     },
+     "\"shades\"": {
+      "n": 7,
+      "acc": 0.0
+     },
+     "\"single\"": {
+      "n": 15,
+      "acc": 0.2
+     }
+    },
+    "spread": 0.2
+   },
+   {
+    "family": "line_chart",
+    "knob": "linestyles",
+    "values": {
+     "false": {
+      "n": 40,
+      "acc": 0.2
+     },
+     "true": {
+      "n": 5,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.2
+   },
+   {
+    "family": "line_chart",
+    "knob": "n_points",
+    "values": {
+     "12": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     },
+     "6": {
+      "n": 15,
+      "acc": 0.2
+     },
+     "8": {
+      "n": 15,
+      "acc": 0.26666666666666666
+     }
+    },
+    "spread": 0.2
+   },
+   {
+    "family": "pie_chart",
+    "knob": "labels",
+    "values": {
+     "\"legend\"": {
+      "n": 15,
+      "acc": 0.2
+     },
+     "\"name\"": {
+      "n": 15,
+      "acc": 0.4
+     },
+     "\"pct\"": {
+      "n": 15,
+      "acc": 0.2
+     }
+    },
+    "spread": 0.2
+   },
+   {
+    "family": "bar_chart",
+    "knob": "value_labels",
+    "values": {
+     "false": {
+      "n": 23,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 22,
+      "acc": 0.18181818181818182
+     }
+    },
+    "spread": 0.18181818181818182
+   },
+   {
+    "family": "line_chart",
+    "knob": "legend",
+    "values": {
+     "\"inside\"": {
+      "n": 30,
+      "acc": 0.23333333333333334
+     },
+     "\"outside\"": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     }
+    },
+    "spread": 0.16666666666666669
+   },
+   {
+    "family": "line_chart",
+    "knob": "markers",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.23333333333333334
+     }
+    },
+    "spread": 0.16666666666666669
+   },
+   {
+    "family": "bar_chart",
+    "knob": "label_rotation",
+    "values": {
+     "0": {
+      "n": 22,
+      "acc": 0.13636363636363635
+     },
+     "30": {
+      "n": 8,
+      "acc": 0.125
+     },
+     "45": {
+      "n": 3,
+      "acc": 0.0
+     },
+     "60": {
+      "n": 5,
+      "acc": 0.0
+     },
+     "90": {
+      "n": 7,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.13636363636363635
+   },
+   {
+    "family": "bar_chart",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.13333333333333333
+     }
+    },
+    "spread": 0.13333333333333333
+   },
+   {
+    "family": "bar_chart",
+    "knob": "near_tie",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.13333333333333333
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.13333333333333333
+   },
+   {
+    "family": "bar_chart",
+    "knob": "size",
+    "values": {
+     "[5.6, 4.2]": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "[6.4, 4.8]": {
+      "n": 30,
+      "acc": 0.13333333333333333
+     }
+    },
+    "spread": 0.13333333333333333
+   },
+   {
+    "family": "table",
+    "knob": "cols",
+    "values": {
+     "4": {
+      "n": 15,
+      "acc": 0.13333333333333333
+     },
+     "5": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     },
+     "6": {
+      "n": 15,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.13333333333333333
+   },
+   {
+    "family": "table",
+    "knob": "font_px",
+    "values": {
+     "12": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "15": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     },
+     "20": {
+      "n": 15,
+      "acc": 0.13333333333333333
+     }
+    },
+    "spread": 0.13333333333333333
+   },
+   {
+    "family": "bar_chart",
+    "knob": "horizontal",
+    "values": {
+     "false": {
+      "n": 37,
+      "acc": 0.10810810810810811
+     },
+     "true": {
+      "n": 8,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.10810810810810811
+   },
+   {
+    "family": "table",
+    "knob": "dense",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.1
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.1
+   },
+   {
+    "family": "table",
+    "knob": "rules",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.1
+     }
+    },
+    "spread": 0.1
+   },
+   {
+    "family": "receipt",
+    "knob": "discount",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.06666666666666667
+   },
+   {
+    "family": "receipt",
+    "knob": "font_px",
+    "values": {
+     "14": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "16": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "18": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     }
+    },
+    "spread": 0.06666666666666667
+   },
+   {
+    "family": "shapes",
+    "knob": "background",
+    "values": {
+     "\"noise\"": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     },
+     "\"plain\"": {
+      "n": 30,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.06666666666666667
+   },
+   {
+    "family": "shapes",
+    "knob": "n_colors",
+    "values": {
+     "3": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "5": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "8": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     }
+    },
+    "spread": 0.06666666666666667
+   },
+   {
+    "family": "shapes",
+    "knob": "overlap",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     }
+    },
+    "spread": 0.06666666666666667
+   },
+   {
+    "family": "line_chart",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 21,
+      "acc": 0.14285714285714285
+     },
+     "true": {
+      "n": 24,
+      "acc": 0.20833333333333334
+     }
+    },
+    "spread": 0.0654761904761905
+   },
+   {
+    "family": "receipt",
+    "knob": "blur",
+    "values": {
+     "0.0": {
+      "n": 30,
+      "acc": 0.03333333333333333
+     },
+     "0.8": {
+      "n": 15,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.03333333333333333
+   },
+   {
+    "family": "receipt",
+    "knob": "ink",
+    "values": {
+     "\"dark\"": {
+      "n": 30,
+      "acc": 0.03333333333333333
+     },
+     "\"faded\"": {
+      "n": 15,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.03333333333333333
+   },
+   {
+    "family": "shapes",
+    "knob": "kinds",
+    "values": {
+     "3": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "4": {
+      "n": 30,
+      "acc": 0.03333333333333333
+     }
+    },
+    "spread": 0.03333333333333333
+   },
+   {
+    "family": "clock",
+    "knob": "minute_ticks",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "numerals",
+    "values": {
+     "\"all\"": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "\"none\"": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "\"quarters\"": {
+      "n": 9,
+      "acc": 0.0
+     },
+     "\"roman\"": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "second_hand",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "similar_hands",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "size",
+    "values": {
+     "320": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "400": {
+      "n": 30,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "table",
+    "knob": "zebra",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.06666666666666667
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     }
+    },
+    "spread": 0.0
+   }
+  ],
+  "qwen2.5-vl-3b": [
+   {
+    "family": "bar_chart",
+    "knob": "label_rotation",
+    "values": {
+     "0": {
+      "n": 22,
+      "acc": 0.8636363636363636
+     },
+     "30": {
+      "n": 8,
+      "acc": 1.0
+     },
+     "45": {
+      "n": 3,
+      "acc": 1.0
+     },
+     "60": {
+      "n": 5,
+      "acc": 0.4
+     },
+     "90": {
+      "n": 7,
+      "acc": 0.42857142857142855
+     }
+    },
+    "spread": 0.6
+   },
+   {
+    "family": "pie_chart",
+    "knob": "n_slices",
+    "values": {
+     "3": {
+      "n": 9,
+      "acc": 1.0
+     },
+     "4": {
+      "n": 13,
+      "acc": 1.0
+     },
+     "5": {
+      "n": 4,
+      "acc": 1.0
+     },
+     "6": {
+      "n": 10,
+      "acc": 0.8
+     },
+     "7": {
+      "n": 8,
+      "acc": 0.5
+     },
+     "8": {
+      "n": 1,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.5
+   },
+   {
+    "family": "pie_chart",
+    "knob": "colors",
+    "values": {
+     "\"distinct\"": {
+      "n": 35,
+      "acc": 0.9714285714285714
+     },
+     "\"shades\"": {
+      "n": 10,
+      "acc": 0.5
+     }
+    },
+    "spread": 0.4714285714285714
+   },
+   {
+    "family": "pie_chart",
+    "knob": "labels",
+    "values": {
+     "\"legend\"": {
+      "n": 15,
+      "acc": 0.6
+     },
+     "\"name\"": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "\"pct\"": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.4
+   },
+   {
+    "family": "pie_chart",
+    "knob": "start_angle",
+    "values": {
+     "0": {
+      "n": 8,
+      "acc": 0.625
+     },
+     "135": {
+      "n": 6,
+      "acc": 1.0
+     },
+     "45": {
+      "n": 7,
+      "acc": 0.7142857142857143
+     },
+     "90": {
+      "n": 24,
+      "acc": 0.9583333333333334
+     }
+    },
+    "spread": 0.375
+   },
+   {
+    "family": "bar_chart",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.9
+     }
+    },
+    "spread": 0.3666666666666667
+   },
+   {
+    "family": "bar_chart",
+    "knob": "near_tie",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.9
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     }
+    },
+    "spread": 0.3666666666666667
+   },
+   {
+    "family": "bar_chart",
+    "knob": "size",
+    "values": {
+     "[5.6, 4.2]": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     },
+     "[6.4, 4.8]": {
+      "n": 30,
+      "acc": 0.9
+     }
+    },
+    "spread": 0.3666666666666667
+   },
+   {
+    "family": "grid_path",
+    "knob": "n",
+    "values": {
+     "10": {
+      "n": 15,
+      "acc": 0.4
+     },
+     "5": {
+      "n": 15,
+      "acc": 0.3333333333333333
+     },
+     "7": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     }
+    },
+    "spread": 0.33333333333333337
+   },
+   {
+    "family": "grid_path",
+    "knob": "wall_density",
+    "values": {
+     "0.15": {
+      "n": 15,
+      "acc": 0.3333333333333333
+     },
+     "0.25": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     },
+     "0.3": {
+      "n": 15,
+      "acc": 0.4
+     }
+    },
+    "spread": 0.33333333333333337
+   },
+   {
+    "family": "receipt",
+    "knob": "font_px",
+    "values": {
+     "14": {
+      "n": 15,
+      "acc": 0.8666666666666667
+     },
+     "16": {
+      "n": 15,
+      "acc": 0.6666666666666666
+     },
+     "18": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.33333333333333337
+   },
+   {
+    "family": "table",
+    "knob": "cols",
+    "values": {
+     "4": {
+      "n": 15,
+      "acc": 0.6666666666666666
+     },
+     "5": {
+      "n": 15,
+      "acc": 0.3333333333333333
+     },
+     "6": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     }
+    },
+    "spread": 0.3333333333333333
+   },
+   {
+    "family": "table",
+    "knob": "font_px",
+    "values": {
+     "12": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     },
+     "15": {
+      "n": 15,
+      "acc": 0.3333333333333333
+     },
+     "20": {
+      "n": 15,
+      "acc": 0.6666666666666666
+     }
+    },
+    "spread": 0.3333333333333333
+   },
+   {
+    "family": "table",
+    "knob": "zebra",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.6
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.3333333333333333
+     }
+    },
+    "spread": 0.26666666666666666
+   },
+   {
+    "family": "bar_chart",
+    "knob": "value_labels",
+    "values": {
+     "false": {
+      "n": 23,
+      "acc": 0.6521739130434783
+     },
+     "true": {
+      "n": 22,
+      "acc": 0.9090909090909091
+     }
+    },
+    "spread": 0.2569169960474308
+   },
+   {
+    "family": "line_chart",
+    "knob": "n_series",
+    "values": {
+     "2": {
+      "n": 22,
+      "acc": 0.9090909090909091
+     },
+     "3": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "4": {
+      "n": 8,
+      "acc": 0.75
+     }
+    },
+    "spread": 0.25
+   },
+   {
+    "family": "bar_chart",
+    "knob": "colors",
+    "values": {
+     "\"distinct\"": {
+      "n": 23,
+      "acc": 0.6956521739130435
+     },
+     "\"shades\"": {
+      "n": 7,
+      "acc": 0.7142857142857143
+     },
+     "\"single\"": {
+      "n": 15,
+      "acc": 0.9333333333333333
+     }
+    },
+    "spread": 0.2376811594202899
+   },
+   {
+    "family": "receipt",
+    "knob": "discount",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 1.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.7666666666666667
+     }
+    },
+    "spread": 0.23333333333333328
+   },
+   {
+    "family": "clock",
+    "knob": "numerals",
+    "values": {
+     "\"all\"": {
+      "n": 15,
+      "acc": 0.2
+     },
+     "\"none\"": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "\"quarters\"": {
+      "n": 9,
+      "acc": 0.0
+     },
+     "\"roman\"": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.2
+   },
+   {
+    "family": "grid_path",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.4
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.2
+     }
+    },
+    "spread": 0.2
+   },
+   {
+    "family": "bar_chart",
+    "knob": "horizontal",
+    "values": {
+     "false": {
+      "n": 37,
+      "acc": 0.8108108108108109
+     },
+     "true": {
+      "n": 8,
+      "acc": 0.625
+     }
+    },
+    "spread": 0.18581081081081086
+   },
+   {
+    "family": "line_chart",
+    "knob": "n_points",
+    "values": {
+     "12": {
+      "n": 15,
+      "acc": 0.8666666666666667
+     },
+     "6": {
+      "n": 15,
+      "acc": 0.8666666666666667
+     },
+     "8": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.1333333333333333
+   },
+   {
+    "family": "clock",
+    "knob": "minute_ticks",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.1
+     }
+    },
+    "spread": 0.1
+   },
+   {
+    "family": "clock",
+    "knob": "second_hand",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.1
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.1
+   },
+   {
+    "family": "clock",
+    "knob": "similar_hands",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.1
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.1
+   },
+   {
+    "family": "clock",
+    "knob": "size",
+    "values": {
+     "320": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "400": {
+      "n": 30,
+      "acc": 0.1
+     }
+    },
+    "spread": 0.1
+   },
+   {
+    "family": "line_chart",
+    "knob": "linestyles",
+    "values": {
+     "false": {
+      "n": 40,
+      "acc": 0.9
+     },
+     "true": {
+      "n": 5,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.09999999999999998
+   },
+   {
+    "family": "line_chart",
+    "knob": "legend",
+    "values": {
+     "\"inside\"": {
+      "n": 30,
+      "acc": 0.9333333333333333
+     },
+     "\"outside\"": {
+      "n": 15,
+      "acc": 0.8666666666666667
+     }
+    },
+    "spread": 0.06666666666666665
+   },
+   {
+    "family": "line_chart",
+    "knob": "markers",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.8666666666666667
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.9333333333333333
+     }
+    },
+    "spread": 0.06666666666666665
+   },
+   {
+    "family": "shapes",
+    "knob": "background",
+    "values": {
+     "\"noise\"": {
+      "n": 15,
+      "acc": 0.6
+     },
+     "\"plain\"": {
+      "n": 30,
+      "acc": 0.6666666666666666
+     }
+    },
+    "spread": 0.06666666666666665
+   },
+   {
+    "family": "shapes",
+    "knob": "n_colors",
+    "values": {
+     "3": {
+      "n": 15,
+      "acc": 0.6666666666666666
+     },
+     "5": {
+      "n": 15,
+      "acc": 0.6666666666666666
+     },
+     "8": {
+      "n": 15,
+      "acc": 0.6
+     }
+    },
+    "spread": 0.06666666666666665
+   },
+   {
+    "family": "shapes",
+    "knob": "overlap",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.6666666666666666
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.6
+     }
+    },
+    "spread": 0.06666666666666665
+   },
+   {
+    "family": "receipt",
+    "knob": "blur",
+    "values": {
+     "0.0": {
+      "n": 30,
+      "acc": 0.8333333333333334
+     },
+     "0.8": {
+      "n": 15,
+      "acc": 0.8666666666666667
+     }
+    },
+    "spread": 0.033333333333333326
+   },
+   {
+    "family": "receipt",
+    "knob": "ink",
+    "values": {
+     "\"dark\"": {
+      "n": 30,
+      "acc": 0.8333333333333334
+     },
+     "\"faded\"": {
+      "n": 15,
+      "acc": 0.8666666666666667
+     }
+    },
+    "spread": 0.033333333333333326
+   },
+   {
+    "family": "shapes",
+    "knob": "kinds",
+    "values": {
+     "3": {
+      "n": 15,
+      "acc": 0.6666666666666666
+     },
+     "4": {
+      "n": 30,
+      "acc": 0.6333333333333333
+     }
+    },
+    "spread": 0.033333333333333326
+   },
+   {
+    "family": "table",
+    "knob": "dense",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.5
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     }
+    },
+    "spread": 0.033333333333333326
+   },
+   {
+    "family": "table",
+    "knob": "rules",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.5
+     }
+    },
+    "spread": 0.033333333333333326
+   },
+   {
+    "family": "line_chart",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 21,
+      "acc": 0.9047619047619048
+     },
+     "true": {
+      "n": 24,
+      "acc": 0.9166666666666666
+     }
+    },
+    "spread": 0.011904761904761862
+   }
+  ],
+  "gemma3-4b": [
+   {
+    "family": "pie_chart",
+    "knob": "start_angle",
+    "values": {
+     "0": {
+      "n": 8,
+      "acc": 0.125
+     },
+     "135": {
+      "n": 6,
+      "acc": 0.8333333333333334
+     },
+     "45": {
+      "n": 7,
+      "acc": 0.2857142857142857
+     },
+     "90": {
+      "n": 24,
+      "acc": 0.875
+     }
+    },
+    "spread": 0.75
+   },
+   {
+    "family": "pie_chart",
+    "knob": "labels",
+    "values": {
+     "\"legend\"": {
+      "n": 15,
+      "acc": 0.3333333333333333
+     },
+     "\"name\"": {
+      "n": 15,
+      "acc": 0.6
+     },
+     "\"pct\"": {
+      "n": 15,
+      "acc": 1.0
+     }
+    },
+    "spread": 0.6666666666666667
+   },
+   {
+    "family": "pie_chart",
+    "knob": "n_slices",
+    "values": {
+     "3": {
+      "n": 9,
+      "acc": 1.0
+     },
+     "4": {
+      "n": 13,
+      "acc": 0.7692307692307693
+     },
+     "5": {
+      "n": 4,
+      "acc": 0.5
+     },
+     "6": {
+      "n": 10,
+      "acc": 0.4
+     },
+     "7": {
+      "n": 8,
+      "acc": 0.5
+     },
+     "8": {
+      "n": 1,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.6
+   },
+   {
+    "family": "shapes",
+    "knob": "n_colors",
+    "values": {
+     "3": {
+      "n": 15,
+      "acc": 0.7333333333333333
+     },
+     "5": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     },
+     "8": {
+      "n": 15,
+      "acc": 0.2
+     }
+    },
+    "spread": 0.5333333333333332
+   },
+   {
+    "family": "pie_chart",
+    "knob": "colors",
+    "values": {
+     "\"distinct\"": {
+      "n": 35,
+      "acc": 0.7428571428571429
+     },
+     "\"shades\"": {
+      "n": 10,
+      "acc": 0.3
+     }
+    },
+    "spread": 0.4428571428571429
+   },
+   {
+    "family": "shapes",
+    "knob": "background",
+    "values": {
+     "\"noise\"": {
+      "n": 15,
+      "acc": 0.2
+     },
+     "\"plain\"": {
+      "n": 30,
+      "acc": 0.6333333333333333
+     }
+    },
+    "spread": 0.4333333333333333
+   },
+   {
+    "family": "shapes",
+    "knob": "overlap",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.6333333333333333
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.2
+     }
+    },
+    "spread": 0.4333333333333333
+   },
+   {
+    "family": "bar_chart",
+    "knob": "colors",
+    "values": {
+     "\"distinct\"": {
+      "n": 23,
+      "acc": 0.6956521739130435
+     },
+     "\"shades\"": {
+      "n": 7,
+      "acc": 0.2857142857142857
+     },
+     "\"single\"": {
+      "n": 15,
+      "acc": 0.6666666666666666
+     }
+    },
+    "spread": 0.40993788819875776
+   },
+   {
+    "family": "shapes",
+    "knob": "kinds",
+    "values": {
+     "3": {
+      "n": 15,
+      "acc": 0.7333333333333333
+     },
+     "4": {
+      "n": 30,
+      "acc": 0.36666666666666664
+     }
+    },
+    "spread": 0.36666666666666664
+   },
+   {
+    "family": "bar_chart",
+    "knob": "label_rotation",
+    "values": {
+     "0": {
+      "n": 22,
+      "acc": 0.6363636363636364
+     },
+     "30": {
+      "n": 8,
+      "acc": 0.75
+     },
+     "45": {
+      "n": 3,
+      "acc": 0.6666666666666666
+     },
+     "60": {
+      "n": 5,
+      "acc": 0.4
+     },
+     "90": {
+      "n": 7,
+      "acc": 0.5714285714285714
+     }
+    },
+    "spread": 0.35
+   },
+   {
+    "family": "line_chart",
+    "knob": "n_series",
+    "values": {
+     "2": {
+      "n": 22,
+      "acc": 0.5
+     },
+     "3": {
+      "n": 15,
+      "acc": 0.6
+     },
+     "4": {
+      "n": 8,
+      "acc": 0.25
+     }
+    },
+    "spread": 0.35
+   },
+   {
+    "family": "grid_path",
+    "knob": "n",
+    "values": {
+     "10": {
+      "n": 15,
+      "acc": 0.4
+     },
+     "5": {
+      "n": 15,
+      "acc": 0.2
+     },
+     "7": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     }
+    },
+    "spread": 0.33333333333333337
+   },
+   {
+    "family": "grid_path",
+    "knob": "wall_density",
+    "values": {
+     "0.15": {
+      "n": 15,
+      "acc": 0.2
+     },
+     "0.25": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     },
+     "0.3": {
+      "n": 15,
+      "acc": 0.4
+     }
+    },
+    "spread": 0.33333333333333337
+   },
+   {
+    "family": "grid_path",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.4
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.13333333333333333
+     }
+    },
+    "spread": 0.2666666666666667
+   },
+   {
+    "family": "table",
+    "knob": "cols",
+    "values": {
+     "4": {
+      "n": 15,
+      "acc": 0.4666666666666667
+     },
+     "5": {
+      "n": 15,
+      "acc": 0.4
+     },
+     "6": {
+      "n": 15,
+      "acc": 0.6666666666666666
+     }
+    },
+    "spread": 0.2666666666666666
+   },
+   {
+    "family": "table",
+    "knob": "font_px",
+    "values": {
+     "12": {
+      "n": 15,
+      "acc": 0.6666666666666666
+     },
+     "15": {
+      "n": 15,
+      "acc": 0.4
+     },
+     "20": {
+      "n": 15,
+      "acc": 0.4666666666666667
+     }
+    },
+    "spread": 0.2666666666666666
+   },
+   {
+    "family": "table",
+    "knob": "dense",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.43333333333333335
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.6666666666666666
+     }
+    },
+    "spread": 0.23333333333333328
+   },
+   {
+    "family": "table",
+    "knob": "rules",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.6666666666666666
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.43333333333333335
+     }
+    },
+    "spread": 0.23333333333333328
+   },
+   {
+    "family": "receipt",
+    "knob": "discount",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.9333333333333333
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.7333333333333333
+     }
+    },
+    "spread": 0.20000000000000007
+   },
+   {
+    "family": "receipt",
+    "knob": "font_px",
+    "values": {
+     "14": {
+      "n": 15,
+      "acc": 0.7333333333333333
+     },
+     "16": {
+      "n": 15,
+      "acc": 0.7333333333333333
+     },
+     "18": {
+      "n": 15,
+      "acc": 0.9333333333333333
+     }
+    },
+    "spread": 0.20000000000000007
+   },
+   {
+    "family": "table",
+    "knob": "zebra",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.5666666666666667
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.4
+     }
+    },
+    "spread": 0.16666666666666663
+   },
+   {
+    "family": "bar_chart",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.6666666666666666
+     }
+    },
+    "spread": 0.1333333333333333
+   },
+   {
+    "family": "bar_chart",
+    "knob": "near_tie",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.6666666666666666
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     }
+    },
+    "spread": 0.1333333333333333
+   },
+   {
+    "family": "bar_chart",
+    "knob": "size",
+    "values": {
+     "[5.6, 4.2]": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     },
+     "[6.4, 4.8]": {
+      "n": 30,
+      "acc": 0.6666666666666666
+     }
+    },
+    "spread": 0.1333333333333333
+   },
+   {
+    "family": "line_chart",
+    "knob": "legend",
+    "values": {
+     "\"inside\"": {
+      "n": 30,
+      "acc": 0.5333333333333333
+     },
+     "\"outside\"": {
+      "n": 15,
+      "acc": 0.4
+     }
+    },
+    "spread": 0.1333333333333333
+   },
+   {
+    "family": "line_chart",
+    "knob": "markers",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.4
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.5333333333333333
+     }
+    },
+    "spread": 0.1333333333333333
+   },
+   {
+    "family": "line_chart",
+    "knob": "n_points",
+    "values": {
+     "12": {
+      "n": 15,
+      "acc": 0.4
+     },
+     "6": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     },
+     "8": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     }
+    },
+    "spread": 0.1333333333333333
+   },
+   {
+    "family": "bar_chart",
+    "knob": "value_labels",
+    "values": {
+     "false": {
+      "n": 23,
+      "acc": 0.5652173913043478
+     },
+     "true": {
+      "n": 22,
+      "acc": 0.6818181818181818
+     }
+    },
+    "spread": 0.11660079051383399
+   },
+   {
+    "family": "receipt",
+    "knob": "blur",
+    "values": {
+     "0.0": {
+      "n": 30,
+      "acc": 0.8333333333333334
+     },
+     "0.8": {
+      "n": 15,
+      "acc": 0.7333333333333333
+     }
+    },
+    "spread": 0.10000000000000009
+   },
+   {
+    "family": "receipt",
+    "knob": "ink",
+    "values": {
+     "\"dark\"": {
+      "n": 30,
+      "acc": 0.8333333333333334
+     },
+     "\"faded\"": {
+      "n": 15,
+      "acc": 0.7333333333333333
+     }
+    },
+    "spread": 0.10000000000000009
+   },
+   {
+    "family": "line_chart",
+    "knob": "linestyles",
+    "values": {
+     "false": {
+      "n": 40,
+      "acc": 0.5
+     },
+     "true": {
+      "n": 5,
+      "acc": 0.4
+     }
+    },
+    "spread": 0.09999999999999998
+   },
+   {
+    "family": "line_chart",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 21,
+      "acc": 0.47619047619047616
+     },
+     "true": {
+      "n": 24,
+      "acc": 0.5
+     }
+    },
+    "spread": 0.023809523809523836
+   },
+   {
+    "family": "bar_chart",
+    "knob": "horizontal",
+    "values": {
+     "false": {
+      "n": 37,
+      "acc": 0.6216216216216216
+     },
+     "true": {
+      "n": 8,
+      "acc": 0.625
+     }
+    },
+    "spread": 0.0033783783783783994
+   },
+   {
+    "family": "clock",
+    "knob": "minute_ticks",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "numerals",
+    "values": {
+     "\"all\"": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "\"none\"": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "\"quarters\"": {
+      "n": 9,
+      "acc": 0.0
+     },
+     "\"roman\"": {
+      "n": 6,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "second_hand",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "similar_hands",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.0
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "clock",
+    "knob": "size",
+    "values": {
+     "320": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "400": {
+      "n": 30,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.0
+   }
+  ],
+  "smolvlm2-2.2b": [
+   {
+    "family": "pie_chart",
+    "knob": "n_slices",
+    "values": {
+     "3": {
+      "n": 9,
+      "acc": 1.0
+     },
+     "4": {
+      "n": 13,
+      "acc": 0.9230769230769231
+     },
+     "5": {
+      "n": 4,
+      "acc": 0.75
+     },
+     "6": {
+      "n": 10,
+      "acc": 0.2
+     },
+     "7": {
+      "n": 8,
+      "acc": 0.25
+     },
+     "8": {
+      "n": 1,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.8
+   },
+   {
+    "family": "pie_chart",
+    "knob": "labels",
+    "values": {
+     "\"legend\"": {
+      "n": 15,
+      "acc": 0.2
+     },
+     "\"name\"": {
+      "n": 15,
+      "acc": 0.7333333333333333
+     },
+     "\"pct\"": {
+      "n": 15,
+      "acc": 0.9333333333333333
+     }
+    },
+    "spread": 0.7333333333333334
+   },
+   {
+    "family": "pie_chart",
+    "knob": "colors",
+    "values": {
+     "\"distinct\"": {
+      "n": 35,
+      "acc": 0.7714285714285715
+     },
+     "\"shades\"": {
+      "n": 10,
+      "acc": 0.1
+     }
+    },
+    "spread": 0.6714285714285715
+   },
+   {
+    "family": "bar_chart",
+    "knob": "label_rotation",
+    "values": {
+     "0": {
+      "n": 22,
+      "acc": 0.5909090909090909
+     },
+     "30": {
+      "n": 8,
+      "acc": 0.625
+     },
+     "45": {
+      "n": 3,
+      "acc": 0.0
+     },
+     "60": {
+      "n": 5,
+      "acc": 0.6
+     },
+     "90": {
+      "n": 7,
+      "acc": 0.5714285714285714
+     }
+    },
+    "spread": 0.625
+   },
+   {
+    "family": "line_chart",
+    "knob": "n_series",
+    "values": {
+     "2": {
+      "n": 22,
+      "acc": 0.5909090909090909
+     },
+     "3": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     },
+     "4": {
+      "n": 8,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.5909090909090909
+   },
+   {
+    "family": "bar_chart",
+    "knob": "colors",
+    "values": {
+     "\"distinct\"": {
+      "n": 23,
+      "acc": 0.6086956521739131
+     },
+     "\"shades\"": {
+      "n": 7,
+      "acc": 0.14285714285714285
+     },
+     "\"single\"": {
+      "n": 15,
+      "acc": 0.6666666666666666
+     }
+    },
+    "spread": 0.5238095238095237
+   },
+   {
+    "family": "pie_chart",
+    "knob": "start_angle",
+    "values": {
+     "0": {
+      "n": 8,
+      "acc": 0.375
+     },
+     "135": {
+      "n": 6,
+      "acc": 0.6666666666666666
+     },
+     "45": {
+      "n": 7,
+      "acc": 0.2857142857142857
+     },
+     "90": {
+      "n": 24,
+      "acc": 0.7916666666666666
+     }
+    },
+    "spread": 0.5059523809523809
+   },
+   {
+    "family": "grid_path",
+    "knob": "n",
+    "values": {
+     "10": {
+      "n": 15,
+      "acc": 0.26666666666666666
+     },
+     "5": {
+      "n": 15,
+      "acc": 0.6666666666666666
+     },
+     "7": {
+      "n": 15,
+      "acc": 0.2
+     }
+    },
+    "spread": 0.4666666666666666
+   },
+   {
+    "family": "grid_path",
+    "knob": "wall_density",
+    "values": {
+     "0.15": {
+      "n": 15,
+      "acc": 0.6666666666666666
+     },
+     "0.25": {
+      "n": 15,
+      "acc": 0.2
+     },
+     "0.3": {
+      "n": 15,
+      "acc": 0.26666666666666666
+     }
+    },
+    "spread": 0.4666666666666666
+   },
+   {
+    "family": "line_chart",
+    "knob": "n_points",
+    "values": {
+     "12": {
+      "n": 15,
+      "acc": 0.26666666666666666
+     },
+     "6": {
+      "n": 15,
+      "acc": 0.6
+     },
+     "8": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     }
+    },
+    "spread": 0.3333333333333333
+   },
+   {
+    "family": "line_chart",
+    "knob": "legend",
+    "values": {
+     "\"inside\"": {
+      "n": 30,
+      "acc": 0.5666666666666667
+     },
+     "\"outside\"": {
+      "n": 15,
+      "acc": 0.26666666666666666
+     }
+    },
+    "spread": 0.3
+   },
+   {
+    "family": "line_chart",
+    "knob": "markers",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.26666666666666666
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.5666666666666667
+     }
+    },
+    "spread": 0.3
+   },
+   {
+    "family": "bar_chart",
+    "knob": "value_labels",
+    "values": {
+     "false": {
+      "n": 23,
+      "acc": 0.43478260869565216
+     },
+     "true": {
+      "n": 22,
+      "acc": 0.6818181818181818
+     }
+    },
+    "spread": 0.2470355731225296
+   },
+   {
+    "family": "bar_chart",
+    "knob": "horizontal",
+    "values": {
+     "false": {
+      "n": 37,
+      "acc": 0.5945945945945946
+     },
+     "true": {
+      "n": 8,
+      "acc": 0.375
+     }
+    },
+    "spread": 0.21959459459459463
+   },
+   {
+    "family": "table",
+    "knob": "cols",
+    "values": {
+     "4": {
+      "n": 15,
+      "acc": 0.4666666666666667
+     },
+     "5": {
+      "n": 15,
+      "acc": 0.26666666666666666
+     },
+     "6": {
+      "n": 15,
+      "acc": 0.26666666666666666
+     }
+    },
+    "spread": 0.2
+   },
+   {
+    "family": "table",
+    "knob": "font_px",
+    "values": {
+     "12": {
+      "n": 15,
+      "acc": 0.26666666666666666
+     },
+     "15": {
+      "n": 15,
+      "acc": 0.26666666666666666
+     },
+     "20": {
+      "n": 15,
+      "acc": 0.4666666666666667
+     }
+    },
+    "spread": 0.2
+   },
+   {
+    "family": "grid_path",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.26666666666666666
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.43333333333333335
+     }
+    },
+    "spread": 0.16666666666666669
+   },
+   {
+    "family": "clock",
+    "knob": "numerals",
+    "values": {
+     "\"all\"": {
+      "n": 15,
+      "acc": 0.13333333333333333
+     },
+     "\"none\"": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "\"quarters\"": {
+      "n": 9,
+      "acc": 0.0
+     },
+     "\"roman\"": {
+      "n": 6,
+      "acc": 0.16666666666666666
+     }
+    },
+    "spread": 0.16666666666666666
+   },
+   {
+    "family": "line_chart",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 21,
+      "acc": 0.38095238095238093
+     },
+     "true": {
+      "n": 24,
+      "acc": 0.5416666666666666
+     }
+    },
+    "spread": 0.1607142857142857
+   },
+   {
+    "family": "bar_chart",
+    "knob": "gridlines",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.4666666666666667
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.6
+     }
+    },
+    "spread": 0.1333333333333333
+   },
+   {
+    "family": "bar_chart",
+    "knob": "near_tie",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.6
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.4666666666666667
+     }
+    },
+    "spread": 0.1333333333333333
+   },
+   {
+    "family": "bar_chart",
+    "knob": "size",
+    "values": {
+     "[5.6, 4.2]": {
+      "n": 15,
+      "acc": 0.4666666666666667
+     },
+     "[6.4, 4.8]": {
+      "n": 30,
+      "acc": 0.6
+     }
+    },
+    "spread": 0.1333333333333333
+   },
+   {
+    "family": "clock",
+    "knob": "second_hand",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.1
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.1
+   },
+   {
+    "family": "clock",
+    "knob": "similar_hands",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.1
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.0
+     }
+    },
+    "spread": 0.1
+   },
+   {
+    "family": "clock",
+    "knob": "size",
+    "values": {
+     "320": {
+      "n": 15,
+      "acc": 0.0
+     },
+     "400": {
+      "n": 30,
+      "acc": 0.1
+     }
+    },
+    "spread": 0.1
+   },
+   {
+    "family": "table",
+    "knob": "dense",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.36666666666666664
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.26666666666666666
+     }
+    },
+    "spread": 0.09999999999999998
+   },
+   {
+    "family": "table",
+    "knob": "rules",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.26666666666666666
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.36666666666666664
+     }
+    },
+    "spread": 0.09999999999999998
+   },
+   {
+    "family": "table",
+    "knob": "zebra",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.36666666666666664
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.26666666666666666
+     }
+    },
+    "spread": 0.09999999999999998
+   },
+   {
+    "family": "line_chart",
+    "knob": "linestyles",
+    "values": {
+     "false": {
+      "n": 40,
+      "acc": 0.475
+     },
+     "true": {
+      "n": 5,
+      "acc": 0.4
+     }
+    },
+    "spread": 0.07499999999999996
+   },
+   {
+    "family": "shapes",
+    "knob": "kinds",
+    "values": {
+     "3": {
+      "n": 15,
+      "acc": 0.6
+     },
+     "4": {
+      "n": 30,
+      "acc": 0.5333333333333333
+     }
+    },
+    "spread": 0.06666666666666665
+   },
+   {
+    "family": "shapes",
+    "knob": "n_colors",
+    "values": {
+     "3": {
+      "n": 15,
+      "acc": 0.6
+     },
+     "5": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     },
+     "8": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     }
+    },
+    "spread": 0.06666666666666665
+   },
+   {
+    "family": "shapes",
+    "knob": "background",
+    "values": {
+     "\"noise\"": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     },
+     "\"plain\"": {
+      "n": 30,
+      "acc": 0.5666666666666667
+     }
+    },
+    "spread": 0.033333333333333326
+   },
+   {
+    "family": "shapes",
+    "knob": "overlap",
+    "values": {
+     "false": {
+      "n": 30,
+      "acc": 0.5666666666666667
+     },
+     "true": {
+      "n": 15,
+      "acc": 0.5333333333333333
+     }
+    },
+    "spread": 0.033333333333333326
+   },
+   {
+    "family": "clock",
+    "knob": "minute_ticks",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.06666666666666667
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.06666666666666667
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "blur",
+    "values": {
+     "0.0": {
+      "n": 30,
+      "acc": 0.6
+     },
+     "0.8": {
+      "n": 15,
+      "acc": 0.6
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "discount",
+    "values": {
+     "false": {
+      "n": 15,
+      "acc": 0.6
+     },
+     "true": {
+      "n": 30,
+      "acc": 0.6
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "font_px",
+    "values": {
+     "14": {
+      "n": 15,
+      "acc": 0.6
+     },
+     "16": {
+      "n": 15,
+      "acc": 0.6
+     },
+     "18": {
+      "n": 15,
+      "acc": 0.6
+     }
+    },
+    "spread": 0.0
+   },
+   {
+    "family": "receipt",
+    "knob": "ink",
+    "values": {
+     "\"dark\"": {
+      "n": 30,
+      "acc": 0.6
+     },
+     "\"faded\"": {
+      "n": 15,
+      "acc": 0.6
+     }
+    },
+    "spread": 0.0
+   }
+  ]
+ },
+ "generation": {
+  "master_seed": 7,
+  "items": 360,
+  "families": [
+   "bar_chart",
+   "clock",
+   "grid_path",
+   "line_chart",
+   "pie_chart",
+   "receipt",
+   "shapes",
+   "table"
+  ],
+  "per_cell": 15,
+  "attempts_total": 418,
+  "probe_reject": {
+   "bar_chart": 5,
+   "pie_chart": 2,
+   "shapes": 1
+  },
+  "ambiguity_reject": {
+   "bar_chart": 8,
+   "clock": 6,
+   "grid_path": 7,
+   "line_chart": 9,
+   "pie_chart": 8,
+   "receipt": 1,
+   "shapes": 5,
+   "table": 6
+  },
+  "top_reject_reasons": [
+   [
+    "bar_chart: probe: tick labels overlap",
+    5
+   ],
+   [
+    "line_chart: near tie peak",
+    5
+   ],
+   [
+    "pie_chart: near tie smallest",
+    5
+   ],
+   [
+    "shapes: largest shape not clearly largest",
+    5
+   ],
+   [
+    "table: column too long to sum fairly",
+    5
+   ],
+   [
+    "bar_chart: bottom two bars within 3px",
+    4
+   ],
+   [
+    "clock: second hand covers another hand",
+    4
+   ],
+   [
+    "grid_path: goal unreachable for a path-length question",
+    4
+   ],
+   [
+    "bar_chart: top-3 ordering within 3px",
+    3
+   ],
+   [
+    "grid_path: too many walls to count fairly",
+    3
+   ],
+   [
+    "line_chart: series too close at some x",
+    3
+   ],
+   [
+    "pie_chart: near tie largest",
+    3
+   ],
+   [
+    "clock: hour and minute hands overlap",
+    2
+   ],
+   [
+    "pie_chart: probe: wedges #,# colours too similar",
+    2
+   ],
+   [
+    "bar_chart: top two bars within 3px",
+    1
+   ],
+   [
+    "line_chart: near tie at x",
+    1
+   ],
+   [
+    "receipt: top two line totals within 1.00",
+    1
+   ],
+   [
+    "shapes: probe: object # only #% visible",
+    1
+   ],
+   [
+    "table: threshold equals a value",
+    1
+   ]
+  ]
+ },
+ "validation": {
+  "items_checked": 360,
+  "identical_spec": 360,
+  "identical_images": 360,
+  "rederive_agree": 360,
+  "probe_pass": 360,
+  "grader_accepts_truth": 360,
+  "grader_rejects_corrupt": 360,
+  "problems": []
+ }
+}
