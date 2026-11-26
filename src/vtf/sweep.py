@@ -25,7 +25,7 @@ SWEEPS = {
     "clock": {"numerals": ["all", "quarters", "roman", "none"], "minute_ticks": [True, False],
               "second_hand": [False, True], "similar_hands": [False, True]},
     "table": {"font_px": [20, 15, 12, 10], "rules": [True, False], "zebra": [False, True]},
-    "receipt": {"skew_deg": [0.0, 3.0, -3.0], "blur": [0.0, 0.8, 1.5], "ink": ["dark", "faded"]},
+    "receipt": {"skew_deg": [0.0, 1.5, -1.5], "blur": [0.0, 0.8, 1.5], "ink": ["dark", "faded"]},
     "shapes": {"background": ["plain", "noise"]},
 }
 
@@ -47,6 +47,8 @@ def sweep(out: Path, master: int = 99, bases: int = 6) -> dict:
         fam = REGISTRY[fam_name]
         b, idx = 0, 0
         while b < bases:
+            if idx >= 50 * bases:
+                raise RuntimeError(f"{fam_name}: only {b} of {bases} sweep bases pass after {idx} tries")
             seed = item_seed(master, fam_name, "sweep", idx)
             idx += 1
             spec, knobs = fam.build(np.random.default_rng(seed), "medium")
