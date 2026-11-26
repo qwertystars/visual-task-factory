@@ -158,16 +158,50 @@ def table_render(spec, knobs, path):
             "text_w": text_w, "pad": pad, "rows": rows_y, "lh": rh}
 
 
+def _legible(img, Hm, box, min_contrast, inset=0):
+    """Contrast of one sheet box in the photo: bright paper vs dark ink inside its warped outline.
+    inset keeps cell borders and rules out of the measurement, so only the text counts."""
+    x0, y0, x1, y1 = box[0] + inset, box[1] + inset, box[2] - inset, box[3] - inset
+    poly = R.apply_h(Hm, [(x0, y0), (x1, y0), (x1, y1), (x0, y1)])
+    Hh, Ww = img.shape[:2]
+    if any(not (2 <= px < Ww - 2 and 2 <= py < Hh - 2) for px, py in poly):
+        return "outside the photo"
+    m = R.polygon_mask(img.shape, poly)
+    g = img[m].astype(np.float32).mean(-1)
+    if g.size < 10:
+        return "too small"
+    c = float(np.percentile(g, 95) - np.percentile(g, 3))
+    if c < min_contrast:
+        return f"contrast {c:.0f}"
+    return None
+
+
+def _row_drift(Hm, rows, lh):
+    """A printed row may tilt in the photo, but not so far that its ends look like different rows."""
+    out = []
+    for k, (x0, x1, yc) in enumerate(rows):
+        (_, ya), (_, yb) = R.apply_h(Hm, [(x0, yc), (x1, yc)])
+        if abs(ya - yb) > 0.75 * lh:
+            out.append(f"row {k} drifts {abs(ya - yb):.0f}px across")
+    return out
+
+
 def table_probe(spec, info, img):
     fails = []
-    gray = img.astype(int).sum(-1) / 3
+    Hm = np.array(info["H"])
     for i, row in enumerate(info["boxes"]):
-        for j, (x0, y0, x1, y1) in enumerate(row):
-            if info["text_w"][i][j] > (x1 - x0) - info["pad"]:
+        for j, box in enumerate(row):
+            if info["text_w"][i][j] > (box[2] - box[0]) - info["pad"]:
                 fails.append(f"cell {i},{j} text wider than cell")
-            ink = (gray[y0 + 2:y1 - 2, x0 + 1:x1 - 1] < 110).sum()
-            if ink < 6:
-                fails.append(f"cell {i},{j} has no ink")
+            bad = _legible(img, Hm, box, 60, inset=3)
+            if bad:
+                fails.append(f"cell {i},{j} {bad}")
+    fails += _row_drift(Hm, info["rows"], info["lh"])
+    W, H = info["sheet"]
+    for px, py in R.apply_h(Hm, [(0, 0), (W, 0), (W, H), (0, H)]):
+        if not (4 <= px < info["w"] - 4 and 4 <= py < info["h"] - 4):
+            fails.append("sheet touches the image edge")
+            break
     return fails
 
 
@@ -377,17 +411,29 @@ def receipt_render(spec, knobs, path):
 
 def receipt_probe(spec, info, img):
     fails = []
-    pre = info.pop("_pre")
-    gray = pre.astype(int).sum(-1) / 3
+    clean, worn = info.pop("_clean"), info.pop("_worn")
+    Hm = np.array(info["H"])
     for k, (y0, y1, right) in enumerate(info["bands"]):
-        if right > info["paper_w"] - 20:
+        if right > info["paper_w"] - 16:
             fails.append(f"line {k} runs off the paper")
-        if (gray[y0:y1, 25:info["paper_w"] - 25] < 160).sum() < 20:
-            fails.append(f"line {k} has no ink")
-    # the paper must stay fully inside the final image (no cropping after skew)
-    edge = np.concatenate([img[0], img[-1], img[:, 0], img[:, -1]]).astype(int)
-    if (edge.sum(-1) > 600).any():
-        fails.append("paper touches the image edge")
+    for k, (x0, y0, x1, y1) in enumerate(info["tokens"]):
+        a, b = int(x0), int(np.ceil(x1))
+        full = clean[int(y0):int(y1), a:b].sum()
+        if full < 4:
+            fails.append(f"token {k} has no ink")
+            continue
+        kept = worn[int(y0):int(y1), a:b].sum() / full
+        if kept < 0.6:
+            fails.append(f"token {k} keeps {kept:.0%} of its ink")
+        bad = _legible(img, Hm, [x0, y0, x1, y1], 40)
+        if bad:
+            fails.append(f"token {k} {bad}")
+    fails += _row_drift(Hm, info["rows"], info["lh"])
+    W, H = info["sheet"]
+    for px, py in R.apply_h(Hm, [(0, 0), (W, 0), (W, H), (0, H)]):
+        if not (4 <= px < info["w"] - 4 and 4 <= py < info["h"] - 4):
+            fails.append("paper touches the image edge")
+            break
     return fails
 
 
