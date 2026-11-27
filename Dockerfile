@@ -3,6 +3,7 @@
 #   docker run --rm vtf                                   # runs the test suite
 #   docker run --rm -v "$PWD/out:/data" vtf uv run --frozen vtf generate /data/ds --seed 7
 #   docker run --rm -v "$PWD/out:/data" vtf uv run --frozen vtf validate /data/ds --seed 7
+#   docker run --rm -v "$PWD/out:/data" vtf scripts/determinism.sh /data/det 7 10
 # Base images are pinned by digest (python 3.12-slim-bookworm, uv 0.13.10, digests read 2026-11-26).
 FROM ghcr.io/astral-sh/uv:0.13.10@sha256:a3ea1357342c1a4bf9a0c53a3deb1b55379aefa037338d8113d5771efa01774f AS uv
 
@@ -15,5 +16,6 @@ COPY pyproject.toml uv.lock ./
 RUN uv sync --frozen --no-install-project
 COPY src ./src
 COPY tests ./tests
+COPY scripts ./scripts
 RUN uv sync --frozen
 CMD ["uv", "run", "--frozen", "pytest", "-q"]

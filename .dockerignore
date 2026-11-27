@@ -3,6 +3,5 @@
 runs
 samples
 docs
-briefs
 **/__pycache__
 .pytest_cache
