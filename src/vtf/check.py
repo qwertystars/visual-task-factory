@@ -37,6 +37,7 @@ def _norm(s: str) -> str:
 def parse_number(seg: str):
     s = seg.replace("−", "-")
     s = re.sub(r"(?<=\d),(?=\d{3}\b)", "", s)  # thousands separators
+    s = re.sub(r"(?<=\d),(?=\d{2}(?!\d))", ".", s)  # decimal comma, as on euro receipts: 12,50
     nums = re.findall(r"-?\d+(?:\.\d+)?", s)
     if nums:
         return float(nums[-1])

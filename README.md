@@ -23,10 +23,11 @@ Make synthetic pictures with questions whose answers are known by construction, 
 | line_chart | highest series in a month, value at a point, peak month, crossings | series count, points, markers, gridlines, legend outside, line styles |
 | pie_chart | largest, smallest, share of a slice | slices, percentages shown / names only / legend only, similar shades, start angle |
 | shapes | count by colour, by kind, by both; colour of the largest; leftmost kind; total | object count, colours, overlap, noisy background |
-| clock | read the time; minutes to the next hour | numerals all / quarters / Roman / none, minute ticks, second hand, similar hand lengths |
-| table | cell lookup, column sum, row with the max, count above a threshold | rows, columns, font size, zebra stripes, rules on/off |
-| receipt | final total, units bought, line total, priciest item | items, discount, skew, blur, faded ink |
+| clock | read the time; minutes to the next hour | watch dials: numerals all / quarters / Roman / none, minute ticks, second hand, subdial, date window, bevel and shadow, similar hand lengths |
+| table | cell lookup, column sum, row with the max, count above a threshold | rows, columns, font size, zebra stripes, rules on/off, photographed sheet (paper, skew, lighting) |
+| receipt | final total, units bought, line total, priciest item | photographed thermal receipt: store header, barcode, five currencies (decimal comma for euro), items, discount, skew, perspective, uneven light, faded ink, dot dropout |
 | grid_path | shortest path length, reachable or not, wall count | grid size, wall density, grid lines |
+| chart_table | product with most or fewest units, units of a product, price of the top seller, revenue leader, units in a category (needs the chart and the table together) | products, value labels on/off, gridlines, theme, palette, font size, currency |
 
 ## Setup
 
@@ -34,7 +35,8 @@ Needs Python 3.12 and [uv](https://docs.astral.sh/uv/).
 
 ```bash
 uv sync
-scripts/demo.sh                     # 72 items, validation, oracle and random baselines, report
+scripts/demo.sh                     # 81 items, validation, oracle and random baselines, report
+scripts/determinism.sh runs/det 7 10   # generate twice, validate both, compare every PNG and JSON byte for byte
 ```
 
 With a local model (free, CPU is enough):
@@ -45,10 +47,22 @@ scripts/serve.sh qwen2.5-vl-3b 8090 &
 scripts/demo.sh http://127.0.0.1:8090 qwen2.5-vl-3b
 ```
 
+## Docker
+
+The image pins its base images by digest and installs from the lock file.
+
+```bash
+docker build -t vtf .
+docker run --rm vtf                                    # test suite
+docker run --rm -v "$PWD/out:/data" vtf uv run --frozen vtf generate /data/ds --seed 7
+docker run --rm -v "$PWD/out:/data" vtf uv run --frozen vtf validate /data/ds --seed 7
+docker run --rm -v "$PWD/out:/data" vtf scripts/determinism.sh /data/det 7 10
+```
+
 ## Commands
 
 ```bash
-uv run vtf generate runs/main --per-cell 15 --seed 7      # 8 families x 3 difficulties x 15 = 360 items
+uv run vtf generate runs/main --per-cell 15 --seed 7      # 9 families x 3 difficulties x 15 = 405 items
 uv run vtf validate runs/main --seed 7                    # regenerate + re-derive + re-probe + grader self-test
 uv run vtf run runs/main oracle                           # must score 100%
 uv run vtf run runs/main random                           # lower bound
@@ -72,6 +86,8 @@ Write four functions and register them (see `src/vtf/families/scenes.py`):
 Then add the matching rule to `src/vtf/verify.py`. `vtf validate` and the tests pick the family up on their own.
 
 ## Results and write-up
+
+These numbers were measured on the first version of the renderers, before the realism upgrade and before chart_table existed.
 
 Main set (360 items, every validation check 360/360): Qwen2.5-VL-3B 61% (71%/57%/55% easy to hard), Gemma 3 4B 47% (57%/44%/41%), SmolVLM2 2.2B 45% (58%/43%/32%). Oracle 100%, random 10%.
 

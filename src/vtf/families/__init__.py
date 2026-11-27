@@ -1,1 +1,1 @@
-from . import charts, docs, scenes  # noqa: F401
+from . import chart_table, charts, docs, scenes  # noqa: F401

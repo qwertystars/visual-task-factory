@@ -22,7 +22,8 @@ def ds(tmp_path_factory):
 
 
 def test_all_families_registered():
-    assert set(FAMS) == {"bar_chart", "line_chart", "pie_chart", "shapes", "clock", "table", "receipt", "grid_path"}
+    assert set(FAMS) == {"bar_chart", "line_chart", "pie_chart", "shapes", "clock", "table", "receipt", "grid_path",
+                         "chart_table"}
 
 
 def test_validate_passes(ds):
@@ -57,6 +58,13 @@ def q(t, ans, tol=0.0, choices=None):
 ])
 def test_numeric(reply, ok):
     assert grade(q("numeric", 42), reply)["correct"] is ok
+
+
+def test_decimal_comma():
+    assert grade(q("numeric", 12.5, 0.005), "12,50")["correct"]
+    assert grade(q("numeric", 12.5, 0.005), "Total: 12,50 €")["correct"]
+    assert grade(q("numeric", 1042), "1,042")["correct"]
+    assert not grade(q("numeric", 12.5, 0.005), "12,05")["correct"]
 
 
 def test_numeric_tolerance():
@@ -116,3 +124,48 @@ def test_month_names():
     assert grade(q("exact", "Feb", choices=c), "February")["correct"]
     assert grade(q("exact", "Feb", choices=c), "It peaks in February.")["correct"]
     assert not grade(q("exact", "Feb", choices=c), "March")["correct"]
+
+
+REALISTIC = ["receipt", "table", "clock"]
+
+
+@pytest.mark.parametrize("fam", REALISTIC)
+def test_noise_only_changes_pixels(tmp_path, fam):
+    """The seeded photo noise lives in knobs only: a new noise seed changes the image bytes but
+    never the spec or the answer, and the probes still judge the new image on its own."""
+    import collections
+
+    import numpy as np
+    from PIL import Image
+
+    from vtf.verify import rederive
+
+    st = {"probe_reject": collections.Counter(), "ambiguity_reject": collections.Counter(),
+          "reasons": collections.Counter()}
+    it = generate_one(fam, "hard", 0, 3, tmp_path, st)
+    fam_obj = REGISTRY[fam]
+    base = hashlib.sha256((tmp_path / it.image.split("/")[1]).read_bytes()).hexdigest()
+    for k in range(3):
+        kn = dict(it.knobs, noise_seed=it.knobs["noise_seed"] + 1 + k)
+        p = tmp_path / f"alt{k}.png"
+        info = fam_obj.render(it.spec, kn, p)
+        assert hashlib.sha256(p.read_bytes()).hexdigest() != base
+        fam_obj.probe(it.spec, info, np.asarray(Image.open(p).convert("RGB")))  # runs; may reject
+        assert rederive(fam, it.spec, it.question.qtype, it.question.params) == it.question.answer
+
+
+def test_chart_table_guard_drops_close_revenues():
+    import numpy as np
+
+    from vtf.core import Reject
+    from vtf.families.chart_table import ct_ask
+
+    spec = {"chart": {"codes": ["A1", "B2"], "units": [50, 49]},
+            "table": [["A1", "Milk", "Dairy", 100], ["B2", "Tea", "Pantry", 100]]}
+    info = {"px_per_unit": 3.0, "axis_max": 60, "value_labels": False}
+    for s in range(20):
+        try:
+            q_ = ct_ask(spec, info, np.random.default_rng(s), "hard")
+        except Reject:
+            continue
+        assert q_.qtype != "revenue_argmax"

@@ -7,7 +7,7 @@ cd "$(dirname "$0")/.."
 OUT=runs/demo
 uv sync -q
 rm -rf "$OUT"
-echo "== 1. generate 72 items (8 families x 3 difficulties x 3)"
+echo "== 1. generate 81 items (9 families x 3 difficulties x 3, chart_table included)"
 uv run vtf generate "$OUT" --per-cell 3 --seed 42 > /dev/null
 echo "== 2. validate: regenerate, re-derive, re-probe, grader self-test"
 uv run vtf validate "$OUT" --seed 42

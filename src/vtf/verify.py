@@ -174,10 +174,39 @@ def _grid(spec, qt, p):
     raise KeyError(qt)
 
 
+def _chart_table(spec, qt, p):
+    # Join the chart (code -> units) and the table (code -> name, category, price) by code.
+    units = {}
+    for code, u in zip(spec["chart"]["codes"], spec["chart"]["units"]):
+        units[code] = u
+    rows = {}
+    for code, name, cat, cents in spec["table"]:
+        rows[code] = (name, cat, cents)
+    if qt in ("name_of_max", "name_of_min", "price_of_max"):
+        codes = list(units)
+        pick_code = _argbest(codes, [units[c] for c in codes], larger=(qt != "name_of_min"))
+        if qt == "price_of_max":
+            return rows[pick_code][2] / 100
+        return rows[pick_code][0]
+    if qt == "units_of_name":
+        for code, (name, _, _) in rows.items():
+            if name == p["name"]:
+                return units[code]
+    if qt == "revenue_argmax":
+        codes = list(rows)
+        return rows[_argbest(codes, [units[c] * rows[c][2] for c in codes])][0]
+    if qt == "category_units":
+        t = 0
+        for code, (_, cat, _) in rows.items():
+            if cat == p["category"]:
+                t += units[code]
+        return t
+    raise KeyError(qt)
+
 
 RULES = {
     "bar_chart": _bar, "line_chart": _line, "pie_chart": _pie, "shapes": _shapes, "clock": _clock,
-    "table": _table, "receipt": _receipt, "grid_path": _grid,
+    "table": _table, "receipt": _receipt, "grid_path": _grid, "chart_table": _chart_table,
 }
 
 
